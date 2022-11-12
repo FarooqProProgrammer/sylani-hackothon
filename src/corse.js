@@ -56,13 +56,13 @@ async function getClass(){
     for(let i =0;i<cities.length;i++){
       console.log(cities[i].id);
       showclass.innerHTML += `
-      <div class="class_1 w-[90%] h-[100px] border-2 border-black mt-5 flex justify-arond items-center pl-5 pr-5">
+      <div class="class_1 w-[90%] h-[100px] border-2  mt-5 flex bg-[#3498db] justify-arond items-center pl-5 pr-5">
 
-      <div class="sno w-[100px] h-[70px] border-2 border-black text-center pt-5">${cities[i].SectionName}</div>
-      <div class="name w-[300px] h-[70px] border-2 border-black text-center pt-5">${cities[i].teachers_name}</div>
-      <div class="view w-[100px] h-[70px] border-2 border-black">
+      <div class="sno w-[100px] h-[70px] border-2 border-white text-center  text-white pt-5">${cities[i].SectionName}</div>
+      <div class="name w-[300px] h-[70px] border-2 border-white text-center text-white  pt-5">${cities[i].teachers_name}</div>
+      <div class="view w-[100px] h-[70px] border-2 border-white">
 
-         <button class="w-full h-[100%] border-2 border-black" onclick="gotoClass('${cities[i].id}')">View</button>
+         <button class="w-full h-[100%] text-white" onclick="gotoClass('${cities[i].id}')">View</button>
 
       </div>
       

@@ -1,7 +1,7 @@
 import{ADD_DATA,getRealTimeStdents,markAttendance} from './config/firebase.js'
 
-window.Add = function (){
 
+document.getElementById("add").addEventListener("click",()=>{
     let body  = document.getElementById("whole_body")
    
     
@@ -10,10 +10,8 @@ window.Add = function (){
     let modalADD  = document.getElementById("modalAdd")
     modalADD.classList.add("absolute")
     modalADD.classList.remove("hidden")
-
     
-}
-
+})
 document.getElementById('hideModal').addEventListener("click",()=>{
 
     let body  = document.getElementById("whole_body")
@@ -113,18 +111,18 @@ async function showStdents(){
 
      showStdents.innerHTML += 
      `
-     <div class="profile_ui_cards w-[300px] h-[350px] border-2 border-black mt-4">
-     <div class="imge_card w-full h-[150px] border-2 border-black flex justify-center items-center">
-         <div class="img w-[100px] h-[100px] border-2 border-black " >
+     <div class="profile_ui_cards w-[300px] h-[350px]  border-2 border-black mt-4">
+     <div class="imge_card w-full h-[150px]  flex justify-center items-center">
+         <div class="img w-[100px] h-[100px]  " >
             <img src='${data[i].file}' class='w-full h-full ronded-lg' />
          </div>
 
      </div>
-     <div class="detailcard w-full h-[200px] border-2 border-black">
-        <p class="text-xl font-black ml-2 mt-2">Name: <span>${data[i].name}</span> </p>
-        <p class="text-xl font-black ml-2 mt-2">Father Name: <span>${data[i].fatherName}</span></p>
-        <p class="text-xl font-black ml-2 mt-2"> class: <span>${data[i].className}</span></p>
-        <button class="text-xl font-black ml-2 mt-2 border-2 border-black pl-5 pr-5" > Attendance Detail</button>
+     <div class="detailcard w-full h-[200px]  bg-[#3498db]">
+        <p class="text-xl font-black ml-2 mt-2 text-white">Name: <span>${data[i].name}</span> </p>
+        <p class="text-xl font-black ml-2 mt-2 text-white">Father Name: <span>${data[i].fatherName}</span></p>
+        <p class="text-xl font-black ml-2 mt-2 text-white"> class: <span>${data[i].className}</span></p>
+        <button class="text-xl font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" > Attendance Detail</button>
      </div>
   </div>
      `
