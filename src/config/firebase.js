@@ -2,6 +2,9 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import {getFirestore , doc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,9 +25,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 
+// ===================================== SIGN IN===================================
 function SignIn(email,password){
   
     signInWithEmailAndPassword(auth, email, password)
@@ -43,6 +48,34 @@ function SignIn(email,password){
     });
 }
 
+// ======================= ADD CLASS =========================================
+
+async function ADDCLASS(){
+        // Add a new document in collection "cities"
+    await setDoc(doc(db, "WEB AND MOBILE SIR HAIDER", "9 - 11 "), {
+        BatchNumber: "08",
+        courseNumber: "121",
+        scheduleOfClass: "mwf",
+        Section_Name :"A",
+        teacherName:"Haider",
+        class_timming:"11 - 01"
+    });
+}
+ADDCLASS()
+
+
+async function ADD_Nested_Class(){
+    await setDoc(doc(db, "WEB AND MOBILE SIR HAIDER", "9 - 11 pm", "9-11 pm", "kahsif"), {
+        BatchNumber: "08",
+        courseNumber: "121",
+        scheduleOfClass: "mwf",
+        Section_Name :"A",
+        teacherName:"Haider",
+        class_timming:"11 - 01"
+    });
+
+}
+ADD_Nested_Class()
 
 export {
     SignIn
