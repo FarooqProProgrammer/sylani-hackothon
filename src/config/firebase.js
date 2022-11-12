@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import {getFirestore , doc, setDoc ,collection, addDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -77,6 +77,19 @@ async function ADD_Nested_Class(){
 }
 ADD_Nested_Class()
 
+
+// ==================================== add course ========================================
+
+async function addcourse(name){
+    const docRef = await addDoc(collection(db, name), {
+        name: name,
+        Time: Date.now()
+      });
+      console.log("Document written with ID: ", docRef.id);
+      console.log('add successuflly');
+}   
+
 export {
-    SignIn
+    SignIn,
+    addcourse
 }
