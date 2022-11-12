@@ -32,8 +32,19 @@ document.getElementById('hideModal').addEventListener("click",()=>{
 })
 
 
-window.addclassDetail = function(){
+window.addclassDetail =async function(e){
+    e.preventDefault()
+    let clasName = document.getElementById("Name").value
+    let clastiming = document.getElementById("cm").value
+    let shedle = document.getElementById("shc").value
+    let teachersName = document.getElementById("tn").value
+    let SectionName = document.getElementById("sn").value
+    let corseName = document.getElementById("cname").value
+    let batchNamber = document.getElementById("bn").value
+   
 
-    let clasName = document.getElementById("Name").vae
+
+    await addcourse(clasName,{clastiming,shedle,teachersName,SectionName,corseName,batchNamber})
+    
 
 }

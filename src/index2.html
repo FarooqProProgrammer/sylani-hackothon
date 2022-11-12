@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+    <section id="whole_body" class="w-full h-full ">
+ <!-- ================= header =========================== -->
+ <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
+    <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
+    
+</header>
+
+
+
+    <section class="class-btn w-full h-[150px] border-2 border-black flex justify-around items-center">
+        <button onclick="Add()" class="border-2 border-black pt-3 pb-3 pr-5 pl-5">Add </button>
+        <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">delete</button>
+        <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">pdate</button>
+    </section>
+
+
+
+
+    <section id="showclass" class="show w-full h-[70vh] border-2 border-black flex flex-col items-center">
+
+      
+
+
+    </section>
+
+
+   
+
+
+
+</section>
+
+
+    <!-- ================= modals ================================== -->
+    <section id="modalAdd" class="modal  hidden w-full h-screen flex justify-center items-center">
+      
+        <div class="container mt-5 ">
+            <span class="text-2xl font-black cursor-pointer" id="hideModal">&times;</span>
+            <div class="text">Add Class Detail</div>
+            <form action="#" onsubmit="addclassDetail(event)">
+                <div class="form-row">
+                    <div class="input-data">
+                       <input type="text" required id="Name">
+                       <div class="underline"></div>
+                       <label for="">Class Name</label>
+                    </div>
+                    
+                 </div>
+               <div class="form-row">
+                  <div class="input-data">
+                     <input type="text" required id="cm">
+                     <div class="underline"></div>
+                     <label for="">Class timing</label>
+                  </div>
+                  <div class="input-data">
+                     <input type="text" required id="shc">
+                     <div class="underline"></div>
+                     <label for="">Schedle of classes</label>
+                  </div>
+               </div>
+               <div class="form-row">
+                  <div class="input-data">
+                     <input type="text" required id="tn">
+                     <div class="underline"></div>
+                     <label for="">Teachers Name</label>
+                  </div>
+                  <div class="input-data">
+                     <input type="text" required id="sn">
+                     <div class="underline"></div>
+                     <label for="">Section Name</label>
+                  </div>
+               </div>
+               <div class="form-row">
+                <div class="input-data">
+                   <input type="text" required id="cname">
+                   <div class="underline"></div>
+                   <label for="">corse name</label>
+                </div>
+                <div class="input-data">
+                   <input type="text" required id="bn">
+                   <div class="underline"></div>
+                   <label for="">batch Nmber</label>
+                </div>
+             </div>
+               <div class="form-row">
+                  <div class="input-data textarea">
+                    
+                    
+                     <div class="form-row submit-btn">
+                        <div class="input-data">
+                           <div class="inner"></div>
+                           <input type="submit" value="submit">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+    </section>
+
+
+    <script type="module" src="./corse.js"></script>
+    <script type="module" src="./config/firebase.js"></script>
+    <script>
+
+       
+    </script>
+</body>
+</html>
