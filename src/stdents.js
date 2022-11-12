@@ -40,6 +40,10 @@ document.getElementById("attendance").addEventListener("click",()=>{
 
 
 })
+
+
+
+
 document.getElementById('hideModalAd').addEventListener("click",()=>{
     let body  = document.getElementById("whole_body")
     body.classList.remove("hidden")
@@ -76,7 +80,7 @@ window.addStdentDetail =  async function (event){
     let Contact = document.getElementById('Contact').value
     let cnic = document.getElementById('cnic').value
     let file = document.getElementById('file').value
-
+ 
 
     let collection = {
         name:name,
@@ -86,7 +90,8 @@ window.addStdentDetail =  async function (event){
         Contact :Contact,
         cnic :cnic,
         file:file,
-        isExist:true
+        isExist:true,
+        Attendence:[]
     }
     let rool = name+generatePassword()
 
@@ -110,8 +115,8 @@ async function showStdents(){
      `
      <div class="profile_ui_cards w-[300px] h-[350px] border-2 border-black mt-4">
      <div class="imge_card w-full h-[150px] border-2 border-black flex justify-center items-center">
-         <div class="img w-[100px] h-[100px] border-2 border-black " style="background-image:url(${data[i].file}) background-size:100% 100%;">
-        
+         <div class="img w-[100px] h-[100px] border-2 border-black " >
+            <img src='${data[i].file}' class='w-full h-full ronded-lg' />
          </div>
 
      </div>
@@ -137,7 +142,7 @@ window.check1 = function(){
     ad.classList.add("hidden")
     popp.classList.remove("hidden")
 }
-var rollnmber
+var no 
 window.jsFunction = function (val){
 
 
@@ -146,7 +151,7 @@ window.jsFunction = function (val){
         check1()
     }
     console.log(val);
-    rollnmber =  val
+    no =  val
      
 }
 
@@ -173,7 +178,7 @@ document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
 
     let ROllNmber = document.getElementById("RollNmber").value
 
-   let data =  await markAttendance(id,ROllNmber,rollnmber)
+   let data =  await markAttendance(id,ROllNmber,no)
 
     for(let i =0;i<data.length;i++){
 

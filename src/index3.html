@@ -10,7 +10,7 @@
     
 
     
-  <section id="whole_body" class="w-full h-full ">
+  <section id="whole_body " class="w-full h-full ">
     <!-- ================= header =========================== -->
     <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
        <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
@@ -19,11 +19,11 @@
    
    
    
-       <section class="class-btn w-full h-[150px] border-2 border-black flex justify-around items-center">
-           <button onclick="Add()" class="border-2 border-black pt-3 pb-3 pr-5 pl-5">Add </button>
-           <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">delete</button>
-           <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">update</button>
-           <button id="attendance" class="border-2 border-black pt-3 pb-3 pr-5 pl-5">Attendance</button>
+       <section class="class-btn w-full h-[150px] border-2  flex justify-around items-center">
+           <button onclick="Add()" class="border-2  bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">Add </button>
+           <button id="d1" class="border-2  bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">delete</button>
+           <button class="border-2 pt-3 pb-3 pr-5 pl-5 bg-[#3498db] text-white">update</button>
+           <button id="attendance" class="border-2  bg-[#3498db] pt-3 pb-3 pr-5 pl-5 text-white">Attendance</button>
            
        </section>
    
@@ -45,6 +45,15 @@
    </section>
    
    
+
+   <!-- =========================== delete =========================== -->
+   <section  id="d" class="delete w-full h-screen  hidden border-2 border-black flex justify-center items-center">
+      <span id="hided" class="text-3xl font-black cursor-pointer">&times;</span>
+      <div class="box w-[300px] h-[300px] border-2 border-black flex flex-col justify-center items-center">
+         <input type="text" class="border-2">
+         <button>delete</button>
+      </div>
+   </section>
    <!-- ====================== Attendance Card Modal ============================== -->
    <section id="modalad" class="Attendance w-full hidden h-screen  border-2 border-black flex justify-center items-center ">
       <div id="ad" class="attendance_cards w-[60%] h-[90vh] border-2 border-black">
@@ -75,6 +84,8 @@
             <button class="w-[200px] h-70px">check</button>
       </div>
    </section>
+
+
 
 
 

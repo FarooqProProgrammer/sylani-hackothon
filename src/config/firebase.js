@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc ,getDocs,collection,query, addDoc,onSnapshot ,where} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import {getFirestore , doc, setDoc ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 // import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -62,7 +62,7 @@ async function ADDCLASS(){
         class_timming:"11 - 01"
     });
 }
-ADDCLASS()
+
 
 
 // async function ADD_Nested_Class(){
@@ -158,7 +158,7 @@ async function ADD_DATA(rool,id,collection1){
  
   console.log(collection1);
 // Add a new document in collection "cities"
-  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", Roll_No),collection1)
+  await setDoc(doc(db, `WEB AND MOBILE `,id, "stdents", Roll_No),collection1)
   console.log('dasdawdawd');
   window.location.reload()
 } 
@@ -191,10 +191,22 @@ async function getRealTimeStdents(){
 }
 async function markAttendance(id,Roll_No,rollnmber){
 
+  const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No);
 
+  let d = new Date()
+  let data1 = {
+    attend:rollnmber,
+    date:d.getDate(),
+    time:d.getHours()+','+d.getMinutes()+','+d.getSeconds()
+  }
+  
+// Add a new document with a generated id.
+  await updateDoc(washingtonRef, {
+    Attendence: arrayUnion(data1)
+  });
 
   
-  const q = query(collection(db, `WEB AND MOBILE /${id}`, `stdents`),where("Roll_No","==", Roll_No));
+  const q = query(collection(db, `WEB AND MOBILE `,id, `stdents`),where("Roll_No","==", Roll_No));
   let data = []
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -206,12 +218,13 @@ async function markAttendance(id,Roll_No,rollnmber){
   return data
 }
 
-
+markAttendance()
 export {
     SignIn,
     addcourse,
     ADD_DATA,
     getRealTimeStdents,
     getRealtime,
-    markAttendance
+    markAttendance,
+    // uploadImage
 }
