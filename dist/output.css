@@ -563,14 +563,6 @@ video {
   margin-top: 1.25rem;
 }
 
-.ml-\[70px\] {
-  margin-left: 70px;
-}
-
-.ml-\[60px\] {
-  margin-left: 60px;
-}
-
 .block {
   display: block;
 }
@@ -631,72 +623,20 @@ video {
   height: auto;
 }
 
-.h-\[100\%\] {
-  height: 100%;
-}
-
-.h-\[\] {
-  height: ;
-}
-
-.h-\[80vh\] {
-  height: 80vh;
-}
-
-.h-\[100vh\] {
-  height: 100vh;
-}
-
 .h-\[90vh\] {
   height: 90vh;
-}
-
-.h-\[100px\] {
-  height: 100px;
-}
-
-.h-\[300px\] {
-  height: 300px;
-}
-
-.h-\[20px\] {
-  height: 20px;
-}
-
-.h-\[200px\] {
-  height: 200px;
-}
-
-.h-\[350px\] {
-  height: 350px;
-}
-
-.h-\[390px\] {
-  height: 390px;
-}
-
-.h-\[380px\] {
-  height: 380px;
-}
-
-.h-\[360px\] {
-  height: 360px;
 }
 
 .h-\[130px\] {
   height: 130px;
 }
 
-.h-\[420px\] {
-  height: 420px;
-}
-
-.h-\[440px\] {
-  height: 440px;
-}
-
 .h-\[430px\] {
   height: 430px;
+}
+
+.h-\[100px\] {
+  height: 100px;
 }
 
 .w-full {
@@ -715,8 +655,24 @@ video {
   width: 100px;
 }
 
-.w-\[90\%\] {
-  width: 90%;
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[40\%\] {
+  width: 40%;
+}
+
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[full\] {
+  width: full;
+}
+
+.w-\[505\] {
+  width: 505;
 }
 
 .w-\[50\] {
@@ -727,12 +683,12 @@ video {
   width: 50%;
 }
 
-.w-\[\] {
-  width: ;
+.w-\[70\%\] {
+  width: 70%;
 }
 
-.w-\[80\%\] {
-  width: 80%;
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .transform {
@@ -789,11 +745,6 @@ video {
   background-color: rgb(52 152 219 / var(--tw-bg-opacity));
 }
 
-.bg-slate-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
-}
-
 .pl-5 {
   padding-left: 1.25rem;
 }
@@ -810,36 +761,8 @@ video {
   padding-right: 1.25rem;
 }
 
-.pl-3 {
-  padding-left: 0.75rem;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
-}
-
-.pl-10 {
-  padding-left: 2.5rem;
-}
-
 .pt-5 {
   padding-top: 1.25rem;
-}
-
-.pl-16 {
-  padding-left: 4rem;
-}
-
-.pl-\[18\] {
-  padding-left: 18;
-}
-
-.pl-\[60px\] {
-  padding-left: 60px;
-}
-
-.pl-\[70px\] {
-  padding-left: 70px;
 }
 
 .text-center {
@@ -854,6 +777,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-black {
@@ -1043,6 +971,10 @@ form .form-row .textarea{
 }
 
 @media (max-width: 700px) {
+  .attendance_cards{
+    width: 100%;
+  }
+
   .container{
     position: relative;
     top: 70px;
@@ -1082,10 +1014,6 @@ form .form-row .textarea{
   .sm\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-
-  .sm\:pl-0 {
-    padding-left: 0px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -1096,21 +1024,9 @@ form .form-row .textarea{
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .md\:pl-0 {
-    padding-left: 0px;
-  }
 }
 
 @media (min-width: 1024px) {
-  .lg\:w-\[80\%\] {
-    width: 80%;
-  }
-
-  .lg\:w-\[1000\%\] {
-    width: 1000%;
-  }
-
   .lg\:w-\[100\%\] {
     width: 100%;
   }

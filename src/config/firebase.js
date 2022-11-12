@@ -153,11 +153,12 @@ function generatePassword() {
 
 // =================== Get Data ===============================
 async function ADD_DATA(rool,id,collection1){
+  const {Roll_No} = collection1
   localStorage.setItem("ClassID",JSON.stringify(id))
  
   console.log(collection1);
 // Add a new document in collection "cities"
-  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", rool),collection1)
+  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", Roll_No),collection1)
   console.log('dasdawdawd');
   window.location.reload()
 } 
@@ -188,11 +189,11 @@ async function getRealTimeStdents(){
  
 
 }
-async function markAttendance(id,Roll_No){
-  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", Roll_No+"Attendance", "Attendance" ,"Attendance-Portal"), {
-            present:"true"
-  });
-    
+async function markAttendance(id,Roll_No,rollnmber){
+
+
+
+  
   const q = query(collection(db, `WEB AND MOBILE /${id}`, `stdents`),where("Roll_No","==", Roll_No));
   let data = []
   const querySnapshot = await getDocs(q);

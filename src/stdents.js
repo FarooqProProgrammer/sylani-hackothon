@@ -27,6 +27,30 @@ document.getElementById('hideModal').addEventListener("click",()=>{
 
 })
 
+document.getElementById("attendance").addEventListener("click",()=>{
+
+    let body  = document.getElementById("whole_body")
+    body.classList.add("hidden")
+
+
+    let modalADD  = document.getElementById("modalad")
+    modalADD.classList.add("absolute")
+    modalADD.classList.remove("hidden")
+
+
+
+})
+document.getElementById('hideModalAd').addEventListener("click",()=>{
+    let body  = document.getElementById("whole_body")
+    body.classList.remove("hidden")
+
+
+    let modalADD  = document.getElementById("modalad")
+    modalADD.classList.remove("absolute")
+    modalADD.classList.add("hidden")
+
+})
+
 
 // ===================== Qery Paramas =============
 function generatePassword() {
@@ -52,7 +76,6 @@ window.addStdentDetail =  async function (event){
     let Contact = document.getElementById('Contact').value
     let cnic = document.getElementById('cnic').value
     let file = document.getElementById('file').value
-
 
 
     let collection = {
@@ -102,16 +125,39 @@ async function showStdents(){
      `
    }
 }
-
+window.check = function(){
+    let ad = document.getElementById('ad')
+    let popp = document.getElementById('popup')
+    ad.classList.add("hidden")
+    popp.classList.remove("hidden")
+}
+window.check1 = function(){
+    let ad = document.getElementById('ad')
+    let popp = document.getElementById('popup')
+    ad.classList.add("hidden")
+    popp.classList.remove("hidden")
+}
+var rollnmber
 window.jsFunction = function (val){
 
 
     if(val == 'leave' || val == 'absent'){
-        
+        check()
+        check1()
     }
+    console.log(val);
+    rollnmber =  val
      
 }
 
+document.getElementById("close").addEventListener("click",()=>{
+    let ad = document.getElementById('ad')
+    let popp = document.getElementById('popup')
+    ad.classList.remove("hidden")
+    popp.classList.add("hidden")
+
+
+})
 document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
 
     console.log(val.key);
@@ -127,7 +173,7 @@ document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
 
     let ROllNmber = document.getElementById("RollNmber").value
 
-   let data =  await markAttendance(id,ROllNmber)
+   let data =  await markAttendance(id,ROllNmber,rollnmber)
 
     for(let i =0;i<data.length;i++){
 
