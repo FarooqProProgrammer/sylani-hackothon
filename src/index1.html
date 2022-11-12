@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+  
+
+    <!-- ================= header =========================== -->
+    <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
+        <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
+        
+    </header>
+
+    <!-- ======================== Login ========================================= -->
+    <div class="login w-full h-[500px] border-2 border-black flex  justify-around items-center">
+        <div class="picture_box w-[500px] h-[400px] border-2 border-black" ></div>
+        <div class="login_form w-[300px] h-[400px] border-2 border-black">
+
+            <div class="input_1 w-full h-[90px] mt-4  ">
+                <label for="" class="block text-2xl">Email</label>
+                <input type="email" class="w-full h-[53px] " id="email">
+            </div>
+            <div class="input_1 w-full h-[90px] mt-4  ">
+                <label for="" class="block text-2xl">password</label>
+                <input type="password" class="w-full h-[53px] " id="pass">
+            </div>
+            <div class="input_1 w-full h-[90px] mt-4   flex justify-center items-center">
+                    <button onclick="login()" id="login" class="w-[100px] h-[60px] border-2 cursor-pointer">LOGIN</button>
+            </div>
+        </div>
+    </div>
+
+
+
+        <script type="module" src="./config/firebase.js"></script>
+        <script type="module" src="./app.js"></script>
+        
+
+</body>
+</html>
