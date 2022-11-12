@@ -10,7 +10,7 @@
     
 
     
-  <section id="whole_body" class="w-full h-full ">
+  <section id="whole_body" class="w-full h-full hidden">
     <!-- ================= header =========================== -->
     <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
        <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
@@ -22,13 +22,15 @@
        <section class="class-btn w-full h-[150px] border-2 border-black flex justify-around items-center">
            <button onclick="Add()" class="border-2 border-black pt-3 pb-3 pr-5 pl-5">Add </button>
            <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">delete</button>
-           <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">pdate</button>
+           <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">update</button>
+           <button class="border-2 border-black pt-3 pb-3 pr-5 pl-5">Attendance</button>
+           
        </section>
    
    
    
    
-       <section id="showStdents" class="show w-full h-[auto] border-2 border-black  grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 pl-5">
+       <section id="showStdents" class="show  w-full h-[auto] border-2 border-black  grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 pl-5">
    
          
    
@@ -43,6 +45,37 @@
    </section>
    
    
+   <!-- ====================== Attendance Card Modal ============================== -->
+   <section class="Attendance w-full  h-screen  border-2 border-black flex justify-center items-center ">
+      <div class="attendance_cards w-[60%] h-[90vh] border-2 border-black">
+         
+         <div class="img_Box w-full h-[130px] border-2 border-black">
+            <span>&times;</span>
+         </div>
+         <div class="content w-full h-[430px] border-2 border-black  pt-5  ">
+            <div class="roll_nmber lg:w-[100%] sm:w-full md:w-full h-[70px]  border-2 border-black flex">
+               <input id="RollNmber" type="text" class="w-[40%] h-full text-center text-xl font-black" placeholder="Roll Nmber">
+               <select name="cars" id="cars" onchange="jsFunction(this.value)">
+                  <option value="present">present</option>
+                  <option value="absent">absent</option>
+                  <option value="leave">leave</option>
+                  <option value="late">late</option>
+                </select>
+            </div>
+            <div id="name" class="w-full font-black text-xl"></div>
+            <div id="fatherName" class="w-full font-black text-xl"></div>
+            <div id="class_Name" class="w-full font-black text-xl"></div>
+         </div>
+      </div>
+
+      <div class="adminpassword w-full h-[100px] border-2 border-black flex flex-col">
+            <input type="text" name="" id="" class="w-full h-70px border-2 border-black">
+            <button class="w-full h-50px">check</button>
+      </div>
+   </section>
+
+
+
        <!-- ================= modals ================================== -->
        <section id="modalAdd" class="modal  hidden w-full h-screen flex justify-center items-center">
          

@@ -74,3 +74,14 @@ async function getClass(){
     }
 
 }
+
+
+
+// ===================== goto classs =================================
+window.gotoClass = function (val){
+
+    localStorage.setItem("id_classrom",JSON.stringify(val))
+    location.href = `./index3.html?=${val}`
+
+
+}

@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc ,getDocs,collection,query, addDoc,onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import {getFirestore , doc, setDoc ,getDocs,collection,query, addDoc,onSnapshot ,where} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 // import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -124,14 +124,7 @@ async function getRealtime(){
 }
 
 
-// ===================== goto classs =================================
-window.gotoClass = function (val){
 
-    localStorage.setItem("id_classrom",JSON.stringify(val))
-    location.href = `./index.html?=${val}`
-
-
-}
 
 
 
@@ -159,11 +152,12 @@ function generatePassword() {
 }
 
 // =================== Get Data ===============================
-async function ADD_DATA(id,collection1){
+async function ADD_DATA(rool,id,collection1){
   localStorage.setItem("ClassID",JSON.stringify(id))
+ 
   console.log(collection1);
 // Add a new document in collection "cities"
-  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", `stdents-${generatePassword()}`),collection1)
+  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", rool),collection1)
   console.log('dasdawdawd');
   window.location.reload()
 } 
@@ -187,17 +181,36 @@ async function getRealTimeStdents(){
     
     
 
-    
+    // ================================================ MArk Attendance =========================
+
 
 
  
 
 }
+async function markAttendance(id,Roll_No){
+  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", Roll_No+"Attendance", "Attendance" ,"Attendance-Portal"), {
+            present:"true"
+  });
+    
+  const q = query(collection(db, `WEB AND MOBILE /${id}`, `stdents`),where("Roll_No","==", Roll_No));
+  let data = []
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log({id:doc.id, ...doc.data()});
+    data.push({id:doc.id, ...doc.data()})
+  });
+  console.log(data);
+  return data
+}
+
 
 export {
     SignIn,
     addcourse,
     ADD_DATA,
     getRealTimeStdents,
-    getRealtime
+    getRealtime,
+    markAttendance
 }
