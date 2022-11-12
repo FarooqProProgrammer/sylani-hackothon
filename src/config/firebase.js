@@ -38,6 +38,7 @@ function SignIn(email,password){
       const user = userCredential.user;
       console.log(user);
 
+      window.location = './index2.html'
     
       
       // ...
@@ -98,43 +99,25 @@ async function addcourse(name,another){
 }   
 
 
-
 // ================== get real time Class Data =============================
-function getRealtime(){
+async function getRealtime(){
 
     const q = query(collection(db, "WEB AND MOBILE "));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const cities = [];
-      querySnapshot.forEach((doc) => {
-          cities.push({id:doc.id,...doc.data()});
-      });
-      console.log( cities);
+    const querySnapshot = await getDocs(q);
 
-
-      let showclass = document.getElementById("showclass")
-      showclass.innerHTML = ''
-      for(let i =0;i<cities.length;i++){
-        console.log(cities[i].id);
-        showclass.innerHTML += `
-        <div class="class_1 w-[90%] h-[100px] border-2 border-black mt-5 flex justify-arond items-center pl-5 pr-5">
-
-        <div class="sno w-[100px] h-[70px] border-2 border-black text-center pt-5">${cities[i].SectionName}</div>
-        <div class="name w-[300px] h-[70px] border-2 border-black text-center pt-5">${cities[i].teachers_name}</div>
-        <div class="view w-[100px] h-[70px] border-2 border-black">
-
-           <button class="w-full h-[100%] border-2 border-black" onclick="gotoClass('${cities[i].id}')">View</button>
-
-        </div>
-        
-
-     </div>
-        `
-        
-
-      }
-
-
+    const data = []
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log({});
+      data.push({id:doc.id,... doc.data()})
     });
+
+
+
+      return data 
+
+
+    
 
 
 
@@ -144,7 +127,7 @@ function getRealtime(){
 // ===================== goto classs =================================
 window.gotoClass = function (val){
 
-
+    localStorage.setItem("id_classrom",JSON.stringify(val))
     location.href = `./index.html?=${val}`
 
 
@@ -180,8 +163,9 @@ async function ADD_DATA(id,collection1){
   localStorage.setItem("ClassID",JSON.stringify(id))
   console.log(collection1);
 // Add a new document in collection "cities"
-await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", `stdents-${generatePassword()}`),collection1)
+  await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", `stdents-${generatePassword()}`),collection1)
   console.log('dasdawdawd');
+  window.location.reload()
 } 
 
 
@@ -189,7 +173,7 @@ await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", `stdents-${generatePass
 // ================================ Get Real Times ================================
 async function getRealTimeStdents(){
 
-  let id = JSON.parse(localStorage.getItem("ClassID"))
+  let id = JSON.parse(localStorage.getItem("id_classrom"))
 
   const q = query(collection(db, `WEB AND MOBILE /${id}`, "stdents"));
   let data = []
@@ -214,5 +198,6 @@ export {
     SignIn,
     addcourse,
     ADD_DATA,
-    getRealTimeStdents
+    getRealTimeStdents,
+    getRealtime
 }

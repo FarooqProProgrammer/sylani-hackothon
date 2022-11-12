@@ -1,4 +1,4 @@
-import {addcourse} from './config/firebase.js'
+import {addcourse,getRealtime} from './config/firebase.js'
 
 
 
@@ -46,5 +46,31 @@ window.addclassDetail =async function(e){
 
     await addcourse(clasName,{clastiming,shedle,teachersName,SectionName,corseName,batchNamber})
     
+
+}
+getClass()  
+async function getClass(){
+    let cities = await getRealtime()
+    let showclass = document.getElementById("showclass")
+    showclass.innerHTML = ''
+    for(let i =0;i<cities.length;i++){
+      console.log(cities[i].id);
+      showclass.innerHTML += `
+      <div class="class_1 w-[90%] h-[100px] border-2 border-black mt-5 flex justify-arond items-center pl-5 pr-5">
+
+      <div class="sno w-[100px] h-[70px] border-2 border-black text-center pt-5">${cities[i].SectionName}</div>
+      <div class="name w-[300px] h-[70px] border-2 border-black text-center pt-5">${cities[i].teachers_name}</div>
+      <div class="view w-[100px] h-[70px] border-2 border-black">
+
+         <button class="w-full h-[100%] border-2 border-black" onclick="gotoClass('${cities[i].id}')">View</button>
+
+      </div>
+      
+
+   </div>
+      `
+      
+
+    }
 
 }

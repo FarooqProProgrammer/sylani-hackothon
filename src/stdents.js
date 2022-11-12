@@ -95,7 +95,7 @@ async function showStdents(){
         <p class="text-xl font-black ml-2 mt-2">Name: <span>${data[i].name}</span> </p>
         <p class="text-xl font-black ml-2 mt-2">Father Name: <span>${data[i].fatherName}</span></p>
         <p class="text-xl font-black ml-2 mt-2"> class: <span>${data[i].className}</span></p>
-        <button class="text-xl font-black ml-2 mt-2"> Attendance Detail</button>
+        <button class="text-xl font-black ml-2 mt-2 border-2 border-black pl-5 pr-5"> Attendance Detail</button>
      </div>
   </div>
      `
