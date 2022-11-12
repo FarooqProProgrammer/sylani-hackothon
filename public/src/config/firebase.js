@@ -38,7 +38,7 @@ function SignIn(email,password){
       const user = userCredential.user;
       console.log(user);
 
-      window.location = './index2.html'
+      window.location = './src/index2.html'
     
       
       // ...
