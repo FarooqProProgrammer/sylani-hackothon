@@ -2,8 +2,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc ,collection,query, addDoc,onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
+import {getFirestore , doc, setDoc ,getDocs,collection,query, addDoc,onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+// import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -12,13 +12,13 @@ import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDQY1qh7UAEBAT6IozgAfuZrGVGOsIIT9I",
-    authDomain: "app-1-a67e1.firebaseapp.com",
-    projectId: "app-1-a67e1",
-    storageBucket: "app-1-a67e1.appspot.com",
-    messagingSenderId: "253115058209",
-    appId: "1:253115058209:web:a898b1d0a474f3478b7b60"
-  };
+  apiKey: "AIzaSyDQY1qh7UAEBAT6IozgAfuZrGVGOsIIT9I",
+  authDomain: "app-1-a67e1.firebaseapp.com",
+  projectId: "app-1-a67e1",
+  storageBucket: "app-1-a67e1.appspot.com",
+  messagingSenderId: "253115058209",
+  appId: "1:253115058209:web:a898b1d0a474f3478b7b60"
+};
 
 
 // Initialize Firebase
@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
+// const storage = getStorage(app);
 
 
 // ===================================== SIGN IN===================================
@@ -64,18 +64,18 @@ async function ADDCLASS(){
 ADDCLASS()
 
 
-async function ADD_Nested_Class(){
-    await setDoc(doc(db, "WEB AND MOBILE SIR HAIDER", "9 - 11 pm", "9-11 pm", "kahsif"), {
-        BatchNumber: "08",
-        courseNumber: "121",
-        scheduleOfClass: "mwf",
-        Section_Name :"A",
-        teacherName:"Haider",
-        class_timming:"11 - 01"
-    });
+// async function ADD_Nested_Class(){
+//     await setDoc(doc(db, "WEB AND MOBILE SIR HAIDER", "9 - 11 pm", "9-11 pm", "kahsif"), {
+//         BatchNumber: "08",
+//         courseNumber: "121",
+//         scheduleOfClass: "mwf",
+//         Section_Name :"A",
+//         teacherName:"Haider",
+//         class_timming:"11 - 01"
+//     });
 
-}
-ADD_Nested_Class()
+// }
+// ADD_Nested_Class()
 
 
 // ==================================== add course ========================================
@@ -116,7 +116,7 @@ function getRealtime(){
       for(let i =0;i<cities.length;i++){
         console.log(cities[i].id);
         showclass.innerHTML += `
-        <div class="class_1 w-[90%] h-[100px] border-2 border-black mt-5 flex justify-between items-center pl-5 pr-5">
+        <div class="class_1 w-[90%] h-[100px] border-2 border-black mt-5 flex justify-arond items-center pl-5 pr-5">
 
         <div class="sno w-[100px] h-[70px] border-2 border-black text-center pt-5">${cities[i].SectionName}</div>
         <div class="name w-[300px] h-[70px] border-2 border-black text-center pt-5">${cities[i].teachers_name}</div>
@@ -145,7 +145,7 @@ function getRealtime(){
 window.gotoClass = function (val){
 
 
-    location.href = `./stdents.html?=${val}`
+    location.href = `./index.html?=${val}`
 
 
 }
@@ -153,19 +153,66 @@ window.gotoClass = function (val){
 
 
 // ================= Pload Image =======================================
-async function uploadImage(image){
-    const storageRef = ref(storage,`images/${image.name}`)
-    const snapshot = await uploadBytes (storageRef,image)
-    const url = await getDownloadURL(snapshot.ref)
-    return url
-  }
+// async function uploadImage(image){
+//     const storageRef = ref(storage,`images/${image.name}`)
+//     const snapshot = await uploadBytes (storageRef,image)
+//     const url = await getDownloadURL(snapshot.ref)
+//     return url
+//   }
 
 
 
   
-getRealtime()
+// getRealtime()
+
+function generatePassword() {
+  var length = 8,
+      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
+}
+
+// =================== Get Data ===============================
+async function ADD_DATA(id,collection1){
+  localStorage.setItem("ClassID",JSON.stringify(id))
+  console.log(collection1);
+// Add a new document in collection "cities"
+await setDoc(doc(db, `WEB AND MOBILE /${id}`, "stdents", `stdents-${generatePassword()}`),collection1)
+  console.log('dasdawdawd');
+} 
+
+
+
+// ================================ Get Real Times ================================
+async function getRealTimeStdents(){
+
+  let id = JSON.parse(localStorage.getItem("ClassID"))
+
+  const q = query(collection(db, `WEB AND MOBILE /${id}`, "stdents"));
+  let data = []
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log({id:doc.id, ...doc.data()});
+    data.push({id:doc.id, ...doc.data()})
+  });
+  return data
+    
+    
+
+    
+
+
+ 
+
+}
+
 export {
     SignIn,
     addcourse,
-    uploadImage
+    ADD_DATA,
+    getRealTimeStdents
 }
