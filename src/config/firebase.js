@@ -3,7 +3,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import {getFirestore , doc, setDoc ,collection,query, addDoc,onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-
+import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
+const storage = getStorage(app);
 
 
 // ===================================== SIGN IN===================================
@@ -151,8 +151,21 @@ window.gotoClass = function (val){
 }
 
 
+
+// ================= Pload Image =======================================
+async function uploadImage(image){
+    const storageRef = ref(storage,`images/${image.name}`)
+    const snapshot = await uploadBytes (storageRef,image)
+    const url = await getDownloadURL(snapshot.ref)
+    return url
+  }
+
+
+
+  
 getRealtime()
 export {
     SignIn,
-    addcourse
+    addcourse,
+    uploadImage
 }
