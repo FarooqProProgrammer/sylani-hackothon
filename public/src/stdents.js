@@ -1,4 +1,4 @@
-import{ADD_DATA,getRealTimeStdents,markAttendance,deletestdent} from './config/firebase.js'
+import{ADD_DATA,getRealTimeStdents,getRealtimeData,markAttendance,deletestdent,update,singlestudents} from './config/firebase.js'
 
 
 document.getElementById("add").addEventListener("click",()=>{
@@ -22,6 +22,37 @@ document.getElementById('hideModal').addEventListener("click",()=>{
     let modalADD  = document.getElementById("modalAdd")
     modalADD.classList.remove("absolute")
     modalADD.classList.add("hidden")
+
+})
+
+
+// ========================== update modal ========================================
+
+
+window.update = function(){
+    
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.add("hidden")
+
+    let modalADD  = document.getElementById("updateAdd")
+    modalADD.classList.add("absolute")
+    modalADD.classList.remove("hidden")
+    
+}
+
+document.getElementById("hidepdateModal").addEventListener("click",async ()=>{
+
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.remove("hidden")
+
+    let modalADD  = document.getElementById("updateAdd")
+    modalADD.classList.remove("absolute")
+    modalADD.classList.add("hidden")
+
 
 })
 
@@ -112,19 +143,19 @@ async function showStdents(){
      showStdents.innerHTML += 
      `
      <div class="profile_ui_cards w-[300px] h-[350px]  border-2 border-black mt-4">
-     <div class="imge_card w-full h-[150px]  flex justify-center items-center">
-         <div class="img w-[100px] h-[100px]  " >
-            <img src='${data[i].file}' class='w-full h-full ronded-lg' />
-         </div>
+        <div class="imge_card w-full h-[150px]  flex justify-center items-center">
+            <div class="img w-[100px] h-[100px]  " >
+                <img src='${data[i].file}' class='w-full h-full ronded-lg' />
+            </div>
 
-     </div>
-     <div class="detailcard w-full h-[200px]  bg-[#3498db]">
-        <p class="text-xl font-black ml-2 mt-2 text-white">Name: <span>${data[i].name}</span> </p>
-        <p class="text-xl font-black ml-2 mt-2 text-white">Father Name: <span>${data[i].fatherName}</span></p>
-        <p class="text-xl font-black ml-2 mt-2 text-white"> class: <span>${data[i].className}</span></p>
-        <button class=" font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" > Attendance </button>
-        <button class=" font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" onclick="Delete('${data[i].id}')"> Delete </button>
-     </div>
+        </div>
+        <div class="detailcard w-full h-[200px]  bg-[#3498db]">
+            <p class="text-xl font-black ml-2 mt-2 text-white">Name: <span>${data[i].name}</span> </p>
+            <p class="text-xl font-black ml-2 mt-2 text-white">Father Name: <span>${data[i].fatherName}</span></p>
+            <p class="text-xl font-black ml-2 mt-2 text-white"> class: <span>${data[i].className}</span></p>
+            <button class=" font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" onclick="Delete('${data[i].id}')"> Delete </button>
+            <button onclick="update()" class="border-2 pt-3 pb-3 pr-5 pl-5 bg-[#3498db] text-white">update</button>
+        </div>
   </div>
      `
    }
@@ -196,8 +227,7 @@ document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
 window.Delete =async function (val){
 
 
-    let v = window.location.href
-    let id = v.slice(v.indexOf('=')+1)
+ 
 
 
     await deletestdent(id,val)
@@ -208,3 +238,41 @@ window.Delete =async function (val){
       });
       id = ''
 }
+
+
+
+
+
+
+
+
+
+// ================ update ==================================================
+function updateStdentDetail(event){
+    event.preventDefault()
+    let name = document.getElementById('Name').value
+    let className = document.getElementById('class').value
+    let father = document.getElementById('father').value
+    let Roll = document.getElementById('Roll').value
+    let Contact = document.getElementById('Contact').value
+    let cnic = document.getElementById('cnic').value
+    let file = document.getElementById('file').value
+
+    
+    update({})
+
+
+
+
+}
+
+// ========================================
+document.getElementById("rollNO").addEventListener("keydown",async (val)=>{
+
+    let v = window.location.href
+    let classID = v.slice(v.indexOf('=')+1)
+    let no = document.getElementById("rollNO").value
+
+   await getRealtimeData(no,classID)
+
+})

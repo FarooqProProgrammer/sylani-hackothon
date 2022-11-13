@@ -21,8 +21,8 @@
    
        <section class="class-btn w-full h-[150px] border-2  flex justify-around items-center">
            <button id="add"  class="border-2  bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">Add </button>
-           <button id="d1" class="border-2  bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">delete</button>
-           <button class="border-2 pt-3 pb-3 pr-5 pl-5 bg-[#3498db] text-white">update</button>
+          
+           
            <button id="attendance" class="border-2  bg-[#3498db] pt-3 pb-3 pr-5 pl-5 text-white">Attendance</button>
            
        </section>
@@ -30,7 +30,7 @@
    
    
    
-       <section id="showStdents" class="show  w-full h-[auto] border-2 border-black  grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 pl-5">
+       <section id="showStdents" class="show  w-full h-[auto] border-2  grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 pl-5">
    
          
    
@@ -107,6 +107,81 @@
    </section>
 
 
+   <!-- ========================== update  modal================================= -->
+   <section id="updateAdd" class="modal  hidden w-full h-screen flex justify-center items-center">
+         
+      <div class="container mt-5 ">
+          <span class="text-2xl font-black cursor-pointer" id="hidepdateModal">&times;</span>
+          <div class="text">Update Stdent Detail</div>
+          <form action="#" onsubmit="updateStdentDetail(event)">
+              <div class="form-row">
+                  <div class="input-data">
+                     <input type="text"  id="Name">
+                     <div class="underline"></div>
+                     <label for="">Name</label>
+                  </div>
+                  <div class="input-data">
+                   <input type="text"  id="class">
+                   <div class="underline"></div>
+                   <label for="">Class</label>
+                </div>
+                <div class="input-data">
+                  <input type="text"  id="rollNO">
+                  <div class="underline"></div>
+                  <label for="">Roll No</label>
+               </div>
+               </div>
+             <div class="form-row">
+                <div class="input-data">
+                   <input type="text"  id="father">
+                   <div class="underline"></div>
+                   <label for="">Father Name</label>
+                </div>
+                <div class="input-data">
+                   <input type="text"  id="Roll">
+                   <div class="underline"></div>
+                   <label for="">Roll Nmber</label>
+                </div>
+             </div>
+             <div class="form-row">
+                <div class="input-data">
+                   <input type="text"  id="Contact">
+                   <div class="underline"></div>
+                   <label for="">Contact Nmber</label>
+                </div>
+                <div class="input-data">
+                   <input type="text"  id="cnic">
+                   <div class="underline"></div>
+                   <label for="">CNIC Nmber</label>
+                </div>
+             </div>
+             <div class="form-row">
+              <div class="input-data">
+                 <input type="text"  id="file">
+                 <div class="underline"></div>
+                 
+              </div>
+              <div class="input-data">
+                 <input type="text"  id="course name">
+                 <div class="underline"></div>
+                 <label for="">corse Name</label>
+              </div>
+           </div>
+             <div class="form-row">
+                <div class="input-data textarea">
+                  
+                  
+                   <div class="form-row submit-btn">
+                      <div class="input-data">
+                         <div class="inner"></div>
+                         <input type="submit" value="submit">
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </form>
+       </div>
+  </section>
 
 
 

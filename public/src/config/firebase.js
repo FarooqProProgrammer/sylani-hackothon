@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc,deleteDoc  ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import {getFirestore , doc, setDoc,deleteDoc  ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where,onSnapshot} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 // import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -220,11 +220,42 @@ async function deleteClass(id){
 
 async function deletestdent(id,classID){
 
-
-  await deleteDoc(doc(db, "WEB AND MOBILE ",classID,'stdents', id));
+  console.log(id);
+  console.log(classID);
+  await deleteDoc(doc(db, "WEB AND MOBILE",classID,'stdents', id));
   console.log("Delete Successfully");
-}
 
+}
+// ====================== get students  ===================================
+async function singlestudents(id){
+      const docRef = doc(db, "WEB AND MOBILE",classID,'stdents', id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+}
+// ============================ Real time data =================================
+function getRealtimeData(id,classID){
+console.log(id);
+  const unsub = onSnapshot(doc(db,  `WEB AND MOBILE/${classID}`,`stdents/${id}`), (doc) => {
+    console.log("Current data: ", doc.data());
+});
+
+
+}
+// ============================== update student modal =============================
+async function update(){
+  const cityRef = doc(db, `WEB AND MOBILE/${classID}`,`stdents/${id}`);
+
+    await updateDoc(cityRef, {
+      capital: deleteField()
+    });
+
+}
 export {
     SignIn,
     addcourse,
@@ -233,5 +264,8 @@ export {
     getRealtime,
     markAttendance,
     deleteClass,
-    deletestdent
+    deletestdent,
+    update,
+    singlestudents,
+    getRealtimeData
   }
