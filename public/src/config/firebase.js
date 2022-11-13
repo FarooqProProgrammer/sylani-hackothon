@@ -217,6 +217,14 @@ async function deleteClass(id){
   await deleteDoc(doc(db, "WEB AND MOBILE ", id));
   console.log("Delete Successfully");
 }
+
+async function deletestdent(id,classID){
+
+
+  await deleteDoc(doc(db, "WEB AND MOBILE ",classID,'stdents', id));
+  console.log("Delete Successfully");
+}
+
 export {
     SignIn,
     addcourse,
@@ -224,5 +232,6 @@ export {
     getRealTimeStdents,
     getRealtime,
     markAttendance,
-    deleteClass
+    deleteClass,
+    deletestdent
   }

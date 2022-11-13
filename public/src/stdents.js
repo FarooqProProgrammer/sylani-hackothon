@@ -1,4 +1,4 @@
-import{ADD_DATA,getRealTimeStdents,markAttendance} from './config/firebase.js'
+import{ADD_DATA,getRealTimeStdents,markAttendance,deletestdent} from './config/firebase.js'
 
 
 document.getElementById("add").addEventListener("click",()=>{
@@ -122,7 +122,8 @@ async function showStdents(){
         <p class="text-xl font-black ml-2 mt-2 text-white">Name: <span>${data[i].name}</span> </p>
         <p class="text-xl font-black ml-2 mt-2 text-white">Father Name: <span>${data[i].fatherName}</span></p>
         <p class="text-xl font-black ml-2 mt-2 text-white"> class: <span>${data[i].className}</span></p>
-        <button class="text-xl font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" > Attendance Detail</button>
+        <button class=" font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" > Attendance </button>
+        <button class=" font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" onclick="Delete('${data[i].id}')"> Delete </button>
      </div>
   </div>
      `
@@ -189,3 +190,21 @@ document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
    class_Name.innerHTML ="CLass Name: " + data[i].className
     }
 })
+
+
+
+window.Delete =async function (val){
+
+
+    let v = window.location.href
+    let id = v.slice(v.indexOf('=')+1)
+
+
+    await deletestdent(id,val)
+    swal({
+        title: "Deleted Successfully !",
+        text: "clicked the button! to continue",
+        icon: "success",
+      });
+      id = ''
+}
