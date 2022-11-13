@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link href="./dist/output.css" rel="stylesheet">
 </head>
 <body>
@@ -15,21 +16,20 @@
     </header>
 
     <!-- ======================== Login ========================================= -->
-    <div class="login w-full h-[500px] border-2 border-black  flex  justify-around items-center">
-        <div class="picture_box w-[500px] h-[400px] border-2 border-black" ></div>
-        <div class="login_form w-[300px] h-[400px] border-2 border-black ">
-
-            <div class="input_1 w-[90%] border-2 border-black h-[90px] mt-4 ml-1 ">
-                <label for="" class="block text-2xl">Email</label>
-                <input type="email" class="w-[80%] h-[53px] " id="email">
-            </div>
-            <div class="input_1 w-[90%] border-2 border-black h-[90px] mt-4  ml-1">
-                <label for="" class="block text-2xl">password</label>
-                <input type="password" class="w-[80%] h-[53px] " id="pass">
-            </div>
-            <div class="input_1 w-full h-[90px] mt-4   flex justify-center items-center">
-                    <button onclick="login()" id="login" class="w-[100px] h-[60px] border-2 cursor-pointer">LOGIN</button>
-            </div>
+    <div class="login w-full h-[500px]   flex  justify-around items-center">
+        <div class="picture_box w-[500px] h-[400px] " ></div>
+        <div class=" w-[300px] h-[400px] border-2 black pt-3 bg-[#3498db]">
+          <div class="inp-block w-[70%] h-[90px]  flex flex-col mt-3">
+            <label for="" class="text-2xl text-white font-black">Email</label>
+            <input style="height: 60px;" required type="email" id="email" class="w-[80%] focus:outline-none  text-center font-black" placeholder="Enter Email...">
+          </div>
+          <div class="inp-block w-[70%] h-[90px]  flex flex-col mt-5">
+            <label for="" class="text-2xl font-black text-white">Password</label>
+            <input style="height: 60px;" required type="password" id="pass" class="w-[80%] outline-none text-center font-black" placeholder="Enter Email...">
+          </div>
+          <div style="padding-top:7px;" class="inp-block w-[70%] h-[90px]  flex flex-col mt-5 pt-4">
+            <button onclick="login()" style="height: 70px; margin: 0 auto;" class="w-[200px] h-[50px] border-2 border-white text-2xl font-black text-white">login</button>
+          </div>
         </div>
     </div>
 

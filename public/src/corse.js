@@ -48,7 +48,7 @@ window.addclassDetail =async function(e){
     
 
 }
-getClass()  
+// getClass()  
 async function getClass(){
     let cities = await getRealtime()
     let showclass = document.getElementById("showclass")
