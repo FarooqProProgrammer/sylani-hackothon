@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/output.css" rel="stylesheet">
+    <style>
+        .twrap {
+          width: 300px;
+          overflow-x: auto; 
+        }
+        </style>
+    <title>Record</title>
+</head>
+<body>
+    <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
+        <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
+    </header>
+
+
+
+
+
+    <div class="attendance w-full h-screen border-2 border-black flex justify-center pt-5">
+
+
+        <div class="twrap">
+            <table>
+              <tr>
+                <th class="" style="margin-right:20px;">S NO:</th>
+                <th class="" style="margin-right:20px;">Attendance</th>
+                <th></th>
+                
+              </tr>
+              <tr>
+                <td>01: </td>
+                <td>Present</td>
+                
+              </tr>
+            </table>
+          </div>
+
+
+    </div>
+
+
+    <script type="module" src="./config/firebase.js"></script>
+    <script type="module" src="./attend.js"></script>
+</body>
+</html>

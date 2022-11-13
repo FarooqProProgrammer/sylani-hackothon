@@ -140,13 +140,14 @@ function generatePassword() {
 }
 
 // =================== Get Data ===============================
-async function ADD_DATA(rool,id,collection1){
+async function ADD_DATA(id,collection1){
   const {Roll_No} = collection1
   localStorage.setItem("ClassID",JSON.stringify(id))
- 
+  console.log(id);
+  console.log(Roll_No);
   console.log(collection1);
 // Add a new document in collection "cities"
-  await setDoc(doc(db, `WEB AND MOBILE `,id, "stdents", Roll_No),collection1)
+  await setDoc(doc(db, 'WEB AND MOBILE ',id, "stdents", Roll_No),collection1)
   console.log('dasdawdawd');
   window.location.reload()
 } 
@@ -222,7 +223,8 @@ async function deletestdent(id,classID){
 
   console.log(id);
   console.log(classID);
-  await deleteDoc(doc(db, "WEB AND MOBILE",classID,'stdents', id));
+await deleteDoc(doc(db, "/WEB AND MOBILE  ",classID,'stdents', id));
+
   console.log("Delete Successfully");
 
 }

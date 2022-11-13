@@ -29,32 +29,32 @@ document.getElementById('hideModal').addEventListener("click",()=>{
 // ========================== update modal ========================================
 
 
-window.update = function(){
+// window.update = function(){
     
-    let body  = document.getElementById("whole_body")
+//     let body  = document.getElementById("whole_body")
    
     
-    body.classList.add("hidden")
+//     body.classList.add("hidden")
 
-    let modalADD  = document.getElementById("updateAdd")
-    modalADD.classList.add("absolute")
-    modalADD.classList.remove("hidden")
+//     let modalADD  = document.getElementById("updateAdd")
+//     modalADD.classList.add("absolute")
+//     modalADD.classList.remove("hidden")
     
-}
+// }
 
-document.getElementById("hidepdateModal").addEventListener("click",async ()=>{
+// document.getElementById("hidepdateModal").addEventListener("click",async ()=>{
 
-    let body  = document.getElementById("whole_body")
+//     let body  = document.getElementById("whole_body")
    
     
-    body.classList.remove("hidden")
+//     body.classList.remove("hidden")
 
-    let modalADD  = document.getElementById("updateAdd")
-    modalADD.classList.remove("absolute")
-    modalADD.classList.add("hidden")
+//     let modalADD  = document.getElementById("updateAdd")
+//     modalADD.classList.remove("absolute")
+//     modalADD.classList.add("hidden")
 
 
-})
+// })
 
 document.getElementById("attendance").addEventListener("click",()=>{
 
@@ -122,9 +122,9 @@ window.addStdentDetail =  async function (event){
         isExist:true,
         Attendence:[]
     }
-    let rool = name+generatePassword()
+   
 
-    await ADD_DATA(rool,id,collection)
+    await ADD_DATA(id,collection)
 
     
 }
@@ -142,20 +142,18 @@ async function showStdents(){
 
      showStdents.innerHTML += 
      `
-     <div class="profile_ui_cards w-[300px] h-[350px]  border-2 border-black mt-4">
-        <div class="imge_card w-full h-[150px]  flex justify-center items-center">
-            <div class="img w-[100px] h-[100px]  " >
-                <img src='${data[i].file}' class='w-full h-full ronded-lg' />
-            </div>
-
-        </div>
-        <div class="detailcard w-full h-[200px]  bg-[#3498db]">
-            <p class="text-xl font-black ml-2 mt-2 text-white">Name: <span>${data[i].name}</span> </p>
-            <p class="text-xl font-black ml-2 mt-2 text-white">Father Name: <span>${data[i].fatherName}</span></p>
-            <p class="text-xl font-black ml-2 mt-2 text-white"> class: <span>${data[i].className}</span></p>
-            <button class=" font-black ml-2 text-white mt-2 border-2 pl-5 pr-5" onclick="Delete('${data[i].id}')"> Delete </button>
-            <button onclick="update()" class="border-2 pt-3 pb-3 pr-5 pl-5 bg-[#3498db] text-white">update</button>
-        </div>
+     <div class="cards w-[300px] h-[300px] border-2  bg-[#3498db] " style='padding-top:50px;'>
+     <div class="img w-full h-[120px]  flex justify-center items-center">
+        <div class="img_box  h-[100px] border-2 " style="width:100px; border-radius:100%; background-image:url('${data[i].file}') ;background-size: 100% 100%;"></div>
+     </div>
+     <div class="cards w-full h-[180px] ">
+        <p class="text-2xl font-black pl-5 text-white">${data[i].name}</p>
+        <p class="text-2xl font-black pl-5 text-white">${data[i].fatherName}</p>
+        <p class="text-2xl font-black pl-5 text-white">${data[i].className}</p>
+        
+        <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Delete('${data[i].id}')">Delete</button>
+        <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>
+     </div>
   </div>
      `
    }
@@ -228,6 +226,8 @@ window.Delete =async function (val){
 
 
  
+    let v = window.location.href
+    let id = v.slice(v.indexOf('=')+1)
 
 
     await deletestdent(id,val)
@@ -236,11 +236,13 @@ window.Delete =async function (val){
         text: "clicked the button! to continue",
         icon: "success",
       });
-      id = ''
+      
 }
 
 
-
+window.Attend = function (val){
+    location.href = `./attend.html?=${val}`
+}
 
 
 
@@ -248,31 +250,31 @@ window.Delete =async function (val){
 
 
 // ================ update ==================================================
-function updateStdentDetail(event){
-    event.preventDefault()
-    let name = document.getElementById('Name').value
-    let className = document.getElementById('class').value
-    let father = document.getElementById('father').value
-    let Roll = document.getElementById('Roll').value
-    let Contact = document.getElementById('Contact').value
-    let cnic = document.getElementById('cnic').value
-    let file = document.getElementById('file').value
+// function updateStdentDetail(event){
+//     event.preventDefault()
+//     let name = document.getElementById('Name').value
+//     let className = document.getElementById('class').value
+//     let father = document.getElementById('father').value
+//     let Roll = document.getElementById('Roll').value
+//     let Contact = document.getElementById('Contact').value
+//     let cnic = document.getElementById('cnic').value
+//     let file = document.getElementById('file').value
 
     
-    update({})
+//     update({})
 
 
 
 
-}
+// }
 
 // ========================================
-document.getElementById("rollNO").addEventListener("keydown",async (val)=>{
+// document.getElementById("rollNO").addEventListener("keydown",async (val)=>{
 
-    let v = window.location.href
-    let classID = v.slice(v.indexOf('=')+1)
-    let no = document.getElementById("rollNO").value
+//     let v = window.location.href
+//     let classID = v.slice(v.indexOf('=')+1)
+//     let no = document.getElementById("rollNO").value
 
-   await getRealtimeData(no,classID)
+//    await getRealtimeData(no,classID)
 
-})
+// })
