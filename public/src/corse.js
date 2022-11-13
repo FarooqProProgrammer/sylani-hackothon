@@ -1,4 +1,4 @@
-import {addcourse,getRealtime} from './config/firebase.js'
+import {addcourse,getRealtime,deleteClass} from './config/firebase.js'
 
 
 
@@ -17,6 +17,43 @@ window.Add = function (){
 
     
 }
+// ========================== delete modal ========================================
+document.getElementById("delete").addEventListener("click", ()=>{
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.add("hidden")
+
+    let modalADD  = document.getElementById("deleteModal")
+    modalADD.classList.add("absolute")
+    modalADD.classList.remove("hidden")
+})
+document.getElementById("HidedeleteModal").addEventListener("click", ()=>{
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.remove("hidden")
+
+    let modalADD  = document.getElementById("deleteModal")
+    modalADD.classList.remove("absolute")
+    modalADD.classList.add("hidden")
+})
+
+
+document.getElementById("DELETECLASS").addEventListener("click",async ()=>{
+
+    let id = document.getElementById("deleteInput").value
+    id = ''
+    await deleteClass(id)
+    swal({
+        title: "Deleted Successfully !",
+        text: "clicked the button! to continue",
+        icon: "success",
+      });
+      id = ''
+      
+})
+// ========================== delete modal ========================================
 
 document.getElementById('hideModal').addEventListener("click",()=>{
 
@@ -48,7 +85,7 @@ window.addclassDetail =async function(e){
     
 
 }
-// getClass()  
+getClass()  
 async function getClass(){
     let cities = await getRealtime()
     let showclass = document.getElementById("showclass")
@@ -56,13 +93,13 @@ async function getClass(){
     for(let i =0;i<cities.length;i++){
       console.log(cities[i].id);
       showclass.innerHTML += `
-      <div class="class_1 w-[90%] h-[100px] border-2  mt-5 flex bg-[#3498db] justify-arond items-center pl-5 pr-5">
+      <div class="class_1 w-[90%] h-[100px] border-2  mt-5 flex bg-[#3498db] justify-around items-center pl-5 pr-5">
 
       <div class="sno w-[100px] h-[70px] border-2 border-white text-center  text-white pt-5">${cities[i].SectionName}</div>
       <div class="name w-[300px] h-[70px] border-2 border-white text-center text-white  pt-5">${cities[i].teachers_name}</div>
       <div class="view w-[100px] h-[70px] border-2 border-white">
 
-         <button class="w-full h-[100%] text-white" onclick="gotoClass('${cities[i].id}')">View</button>
+         <button class="w-full h-[100%] text-white pt-5" onclick="gotoClass('${cities[i].id}')">View</button>
 
       </div>
       

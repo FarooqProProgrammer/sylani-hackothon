@@ -6,7 +6,7 @@
   <link href="../dist/output.css" rel="stylesheet">
 </head>
 <body>
-    <section id="whole_body" class="w-full h-full ">
+    <section id="whole_body" class="w-full    h-full ">
  <!-- ================= header =========================== -->
  <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
     <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
@@ -17,7 +17,7 @@
 
     <section class="class-btn w-full h-[150px] border-2 border-black flex justify-around items-center">
         <button onclick="Add()" class="border-2 bg-[#3498db] text-white border-black pt-3 pb-3 pr-5 pl-5">Add </button>
-        <button class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">delete</button>
+        <button id="delete" class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">delete</button>
         <button class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">update</button>
     </section>
 
@@ -25,13 +25,6 @@
 
 
     <section id="showclass" class="show w-full h-[70vh] border-2 border-black flex flex-col justify-center items-center">
-      <div style="overflow-x:auto; width: 900px; display: flex; justify-content: center; align-items: center;" class="w-[90%] h-[400px] border-2 border-black">
-         <table class="w-[800px] h-[inherit]">
-            <tr>section name</tr>
-            <tr>teacher name</tr>
-            
-         </table>
-       </div>
 
     </section>
 
@@ -42,7 +35,7 @@
 
 </section>
 
-<footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+<footer class="p-4  bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
    <div class="sm:flex sm:items-center sm:justify-between">
        
        <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
@@ -65,7 +58,18 @@
    </span>
 </footer>
 
-
+   <!-- ============================= delete Modal ======================================= -->
+   <section id="deleteModal" style="height: 100vh;" class="delete hidden flex justify-center items-center  w-full  border-2 border-black bg-[#3498db]">
+      <div style="height: 65vh;" class="border-2 border-white w-[500px] ">
+         <span id="HidedeleteModal" class="w-full text-3xl font-black cursor-pointer text-white">&times;</span>
+         <div style="height: 59vh;" class="inpt w-full    flex flex-col justify-around items-center">
+            <div style="height:10vh; " class="input w-[90%]">
+               <input type="text"  id="deleteInput" style="color: #7f8c8d; text-align:center;" class="w-full h-full  text-3xl font-black " placeholder="Enter ID TO Delete">
+            </div>
+            <button id="DELETECLASS" class="text-white font-black text-3xl" style="width: 200px; height:50px; border:2px solid white;">Delete</button>
+         </div>
+      </div>
+   </section>
     <!-- ================= modals ================================== -->
     <section id="modalAdd" class="modal  hidden w-full h-screen flex justify-center items-center">
       
@@ -135,7 +139,7 @@
 
     <script type="module" src="./config/firebase.js"></script>
     <script type="module" src="./corse.js"></script>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
 
        

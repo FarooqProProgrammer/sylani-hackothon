@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import {getFirestore , doc, setDoc,deleteDoc  ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 // import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -65,18 +65,6 @@ async function ADDCLASS(){
 
 
 
-// async function ADD_Nested_Class(){
-//     await setDoc(doc(db, "WEB AND MOBILE SIR HAIDER", "9 - 11 pm", "9-11 pm", "kahsif"), {
-//         BatchNumber: "08",
-//         courseNumber: "121",
-//         scheduleOfClass: "mwf",
-//         Section_Name :"A",
-//         teacherName:"Haider",
-//         class_timming:"11 - 01"
-//     });
-
-// }
-// ADD_Nested_Class()
 
 
 // ==================================== add course ========================================
@@ -219,6 +207,16 @@ async function markAttendance(id,Roll_No,rollnmber){
 }
 
 markAttendance()
+
+
+
+//  ====================================== Delete Class ===========================
+async function deleteClass(id){
+
+
+  await deleteDoc(doc(db, "WEB AND MOBILE ", id));
+  console.log("Delete Successfully");
+}
 export {
     SignIn,
     addcourse,
@@ -226,5 +224,5 @@ export {
     getRealTimeStdents,
     getRealtime,
     markAttendance,
-    // uploadImage
-}
+    deleteClass
+  }
