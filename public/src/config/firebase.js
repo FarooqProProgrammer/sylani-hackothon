@@ -231,14 +231,18 @@ async function deleteClass(id){
 }
 
 async function deletestdent(id,classID){
-
+  // async function deletestdent(){
   console.log(id);
   console.log(classID);
-await deleteDoc(doc(db, "/WEB AND MOBILE  ",classID,'stdents', id));
+// await deleteDoc(doc(db, "/WEB AND MOBILE  ",classID,'stdents', id));
+await deleteDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${classID}`));
+  //await deleteDoc(doc(db, `/WEB AND MOBILE /oUFmpPGIbYe54bEv6lQ0/stdents/KhurramRcGPgdmn`));
+// await deleteDoc(doc(db, `/WEB AND MOBILE /oUFmpPGIbYe54bEv6lQ0/stdents/Farooq40d7qgmt/Attendance`));
 
   console.log("Delete Successfully");
 
 }
+
 // ====================== get students  ===================================
 async function singlestudents(id){
       const docRef = doc(db, "WEB AND MOBILE",classID,'stdents', id);
