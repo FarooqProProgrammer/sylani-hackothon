@@ -5,12 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
-    <style>
-        .twrap {
-          width: 300px;
-          overflow-x: auto; 
-        }
-        </style>
+
     <title>Record</title>
 </head>
 <body>
@@ -22,24 +17,16 @@
 
 
 
-    <div class="attendance w-full h-screen border-2 border-black flex justify-center pt-5">
+    <div id="attend" class="attendance w-full h-screen border-2 border-black flex flex-col justify-center items-center pt-5">
 
 
-        <div class="twrap">
-            <table>
-              <tr>
-                <th class="" style="margin-right:20px;">S NO:</th>
-                <th class="" style="margin-right:20px;">Attendance</th>
-                <th></th>
-                
-              </tr>
-              <tr>
-                <td>01: </td>
-                <td>Present</td>
-                
-              </tr>
-            </table>
-          </div>
+        <div style="width: 90%;" class="record h-[90%] border-2 border-black flex flex-col ">
+            <div class="attendace w-[80%] h-[100px] border-2 flex justify-around items-center">
+              <div style="width:	5.625rem;" class="date h-[100px] border-2 border-black text-2xl font-black text-center pt-5">Date</div>
+              <div style="width: 37.5rem;" class="atten h-[100px] border-2 border-black text-2xl font-black text-center pt-5">attendance</div>
+              <div style="width: 5.625rem;" class="titme  h-[100px] border-2 border-black text-2xl font-black text-center pt-5">Time</div>
+            </div>
+        </div>
 
 
     </div>

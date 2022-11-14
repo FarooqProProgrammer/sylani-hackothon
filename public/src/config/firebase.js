@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAuth ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {getFirestore , doc, setDoc,deleteDoc  ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where,onSnapshot} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import {getFirestore , doc, setDoc,deleteDoc ,getDoc ,arrayUnion,getDocs,collection,query, addDoc,updateDoc ,where,onSnapshot} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 // import {getStorage, ref ,uploadBytes ,getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -191,14 +191,11 @@ async function markAttendance(id,Roll_No,rollnmber){
   }
   // Add a new document in collection "cities"
 await setDoc(doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance',`attend-${generatePassword()}`), data1);
-  // console.log("Document written with ID: ", docRef.id)
-// Add a new document with a generated id.
-  // await updateDoc(washingtonRef, {
-  //   Attendence: arrayUnion(data1)
-  // });
 
+
+console.log(Roll_No);
   
-  const q = query(collection(db, `WEB AND MOBILE `,id, `stdents`),where("Roll_No","==", Roll_No));
+  const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
   let data = []
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -212,7 +209,18 @@ await setDoc(doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance',`atten
 
 markAttendance()
 
+async function get_Attend(id,classID){
+  // const docRef = doc(db, `WEB AND MOBILE/oUFmpPGIbYe54bEv6lQ0 `, `stdents`,`Farooq40d7qgmt/Attendance`);
+  const q = query(collection(db, `/WEB AND MOBILE /${classID}/stdents/${id}/Attendance`));
 
+  const data = []
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    data.push({id:doc.id,... doc.data()});
+  });
+  return data
+}
 
 //  ====================================== Delete Class ===========================
 async function deleteClass(id){
@@ -272,5 +280,6 @@ export {
     deletestdent,
     update,
     singlestudents,
-    getRealtimeData
+    getRealtimeData,
+    get_Attend
   }
