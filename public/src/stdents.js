@@ -172,6 +172,8 @@ window.check1 = function(){
     ad.classList.add("hidden")
     popp.classList.remove("hidden")
 }
+// ======================== Attendance ===============================
+var no 
 window.jsFunction =async function (val){
 
 
@@ -182,19 +184,23 @@ window.jsFunction =async function (val){
     console.log(val.key);
   
 
-
+no = val.key
     if(val.key == "Enter"){
         console.log("Its Enter KEY");
     }
 
 
+   
+     
+}
+window.MarkAttendance = async function (){
     let v = window.location.href
     let id = v.slice(v.indexOf('=')+1)
 
 
     let ROllNmber = document.getElementById("RollNmber").value
 
-   let data =  await markAttendance(id,ROllNmber,val.key)
+   let data =  await markAttendance(id,ROllNmber,no)
 
     for(let i =0;i<data.length;i++){
 
@@ -206,8 +212,10 @@ window.jsFunction =async function (val){
    fatherName.innerHTML ="Father Name:" + data[i].fatherName
    class_Name.innerHTML ="CLass Name: " + data[i].className
     }
-     
 }
+
+
+
 
 document.getElementById("close").addEventListener("click",()=>{
     let ad = document.getElementById('ad')

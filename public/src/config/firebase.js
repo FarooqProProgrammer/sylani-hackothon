@@ -192,22 +192,21 @@ async function markAttendance(id,Roll_No,rollnmber){
  }
   
   // Add a new document in collection "cities"
-//await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}`,'Attendance',`attend-${generatePassword()}`), data1);
-await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/attend`), data1);
+await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}`,'Attendance',`attend-${generatePassword()}`), data1);
+// await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance`), data1);
 
 
 console.log(Roll_No);
   
   const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
-  let data = []
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
- 
-   console.log({id:doc.id, ...doc.data()});
-    data.push({id:doc.id, ...doc.data()})
-  });
-  console.log(data);
-  return data
+  const docSnap = await getDoc(q);
+
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
 }
 
 
