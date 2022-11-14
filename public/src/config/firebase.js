@@ -147,7 +147,7 @@ async function ADD_DATA(id,collection1){
   console.log(Roll_No);
   console.log(collection1);
 // Add a new document in collection "cities"
-  await setDoc(doc(db, 'WEB AND MOBILE ',id, "stdents", Roll_No),collection1)
+  await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents`, Roll_No),collection1)
   console.log('dasdawdawd');
   window.location.reload()
 } 
@@ -183,14 +183,17 @@ async function markAttendance(id,Roll_No,rollnmber){
   // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance');
  // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance','attend');
 
+ console.log(Roll_No);
   let d = new Date()
-  let data1 = {
-    attend:rollnmber,
-    date:d.getDate(),
-    time:d.getHours()+','+d.getMinutes()+','+d.getSeconds()
-  }
+ let data1 = {
+   attend:rollnmber,
+   date:d.getDate(),
+   time:d.getHours()+','+d.getMinutes()+','+d.getSeconds()
+ }
+  
   // Add a new document in collection "cities"
-await setDoc(doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance',`attend-${generatePassword()}`), data1);
+//await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}`,'Attendance',`attend-${generatePassword()}`), data1);
+await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/attend`), data1);
 
 
 console.log(Roll_No);
@@ -199,15 +202,15 @@ console.log(Roll_No);
   let data = []
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log({id:doc.id, ...doc.data()});
+ 
+   console.log({id:doc.id, ...doc.data()});
     data.push({id:doc.id, ...doc.data()})
   });
   console.log(data);
   return data
 }
 
-markAttendance()
+
 
 async function get_Attend(id,classID){
   // const docRef = doc(db, `WEB AND MOBILE/oUFmpPGIbYe54bEv6lQ0 `, `stdents`,`Farooq40d7qgmt/Attendance`);
