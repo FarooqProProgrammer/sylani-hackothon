@@ -180,7 +180,8 @@ async function getRealTimeStdents(){
 }
 async function markAttendance(id,Roll_No,rollnmber){
 
-  const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No);
+  // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance');
+ // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance','attend');
 
   let d = new Date()
   let data1 = {
@@ -188,11 +189,13 @@ async function markAttendance(id,Roll_No,rollnmber){
     date:d.getDate(),
     time:d.getHours()+','+d.getMinutes()+','+d.getSeconds()
   }
-  
+  // Add a new document in collection "cities"
+await setDoc(doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance',`attend-${generatePassword()}`), data1);
+  // console.log("Document written with ID: ", docRef.id)
 // Add a new document with a generated id.
-  await updateDoc(washingtonRef, {
-    Attendence: arrayUnion(data1)
-  });
+  // await updateDoc(washingtonRef, {
+  //   Attendence: arrayUnion(data1)
+  // });
 
   
   const q = query(collection(db, `WEB AND MOBILE `,id, `stdents`),where("Roll_No","==", Roll_No));
