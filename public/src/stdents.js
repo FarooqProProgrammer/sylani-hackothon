@@ -152,7 +152,7 @@ async function showStdents(){
         <p class="text-2xl font-black pl-5 text-white">${data[i].className}</p>
         
         <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Delete('${data[i].id}')">Delete</button>
-        <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>
+        <!--<button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>-->
      </div>
   </div>
      `
@@ -240,9 +240,9 @@ window.Delete =async function (val){
 }
 
 
-window.Attend = function (val){
-    location.href = `./attend.html?=${val}`
-}
+// window.Attend = function (val){
+//     location.href = `./attend.html?=${val}`
+// }
 
 
 
