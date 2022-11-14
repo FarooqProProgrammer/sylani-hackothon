@@ -172,16 +172,40 @@ window.check1 = function(){
     ad.classList.add("hidden")
     popp.classList.remove("hidden")
 }
-var no 
-window.jsFunction = function (val){
+window.jsFunction =async function (val){
 
 
     if(val == 'leave' || val == 'absent'){
         check()
         check1()
     }
-    console.log(val);
-    no =  val
+    console.log(val.key);
+  
+
+
+    if(val.key == "Enter"){
+        console.log("Its Enter KEY");
+    }
+
+
+    let v = window.location.href
+    let id = v.slice(v.indexOf('=')+1)
+
+
+    let ROllNmber = document.getElementById("RollNmber").value
+
+   let data =  await markAttendance(id,ROllNmber,val.key)
+
+    for(let i =0;i<data.length;i++){
+
+   let name = document.getElementById("name")
+   let fatherName = document.getElementById("fatherName")
+   let class_Name = document.getElementById("class_Name")
+
+   name.innerHTML ='Name: '+ data[i].name
+   fatherName.innerHTML ="Father Name:" + data[i].fatherName
+   class_Name.innerHTML ="CLass Name: " + data[i].className
+    }
      
 }
 
@@ -195,31 +219,9 @@ document.getElementById("close").addEventListener("click",()=>{
 })
 document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
 
-    console.log(val.key);
+ 
 
-    if(val.key == "Enter"){
-        console.log("Its Enter KEY");
-    }
-
-
-    let v = window.location.href
-    let id = v.slice(v.indexOf('=')+1)
-
-
-    let ROllNmber = document.getElementById("RollNmber").value
-
-   let data =  await markAttendance(id,ROllNmber,no)
-
-    for(let i =0;i<data.length;i++){
-
-   let name = document.getElementById("name")
-   let fatherName = document.getElementById("fatherName")
-   let class_Name = document.getElementById("class_Name")
-
-   name.innerHTML ='Name: '+ data[i].name
-   fatherName.innerHTML ="Father Name:" + data[i].fatherName
-   class_Name.innerHTML ="CLass Name: " + data[i].className
-    }
+  
 })
 
 
