@@ -83,7 +83,7 @@ document.getElementById('hideModalAd').addEventListener("click",()=>{
     modalADD.classList.add("hidden")
 
 })
-
+// /=============================== edit modal ============================
 
 // ===================== Qery Paramas =============
 function generatePassword() {
@@ -153,6 +153,8 @@ async function showStdents(){
         
         <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Delete('${data[i].id}')">Delete</button>
         <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>
+        <button id='edit' style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="EDIT('${data[i].id}')">EDIT</button>
+        
      </div>
   </div>
      `
@@ -250,23 +252,24 @@ window.Attend = function (val){
 
 
 // ================ update ==================================================
-// function updateStdentDetail(event){
-//     event.preventDefault()
-//     let name = document.getElementById('Name').value
-//     let className = document.getElementById('class').value
-//     let father = document.getElementById('father').value
-//     let Roll = document.getElementById('Roll').value
-//     let Contact = document.getElementById('Contact').value
-//     let cnic = document.getElementById('cnic').value
-//     let file = document.getElementById('file').value
-
-    
-//     update({})
+window.updateStdentDetail =  async function (event){
+   event.preventDefault()
 
 
+   let val =JSON.parse(localStorage.getItem("EDIT_ID"))
+
+let name = document.getElementById("Name_").value
+let class1 = document.getElementById("class_").value
+let father = document.getElementById("father_").value
+let contact = document.getElementById("Contact_").value
+let cnic = document.getElementById("cnic_").value
+let file = document.getElementById("file_").value
 
 
-// }
+
+await update(contact,class1,cnic,father,name,file,val)
+
+ }
 
 // ========================================
 // document.getElementById("rollNO").addEventListener("keydown",async (val)=>{
@@ -278,3 +281,36 @@ window.Attend = function (val){
 //    await getRealtimeData(no,classID)
 
 // })
+
+
+
+
+window.EDIT =async function (val){
+
+    localStorage.setItem("EDIT_ID",JSON.stringify(val))
+
+    let body  = document.getElementById("whole_body")
+    body.classList.add("hidden")
+
+    let modalADD  = document.getElementById("updateAdd")
+    modalADD.classList.add("absolute")
+    modalADD.classList.remove("hidden")
+
+
+
+ 
+
+    
+
+}
+
+
+document.getElementById("hideEdit").addEventListener("click",()=>{
+
+    let body  = document.getElementById("whole_body")
+    body.classList.remove("hidden")
+
+    let modalADD  = document.getElementById("updateAdd")
+    modalADD.classList.remove("absolute")
+    modalADD.classList.add("hidden")
+})

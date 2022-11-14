@@ -265,14 +265,21 @@ console.log(id);
 
 }
 // ============================== update student modal =============================
-async function update(){
-  const cityRef = doc(db, `WEB AND MOBILE/${classID}`,`stdents/${id}`);
+async function update(Contact,className,cnic,fatherName,name,file,val){
+  let id = JSON.parse(localStorage.getItem("id_classrom"))
+  const cityRef = doc(db, `/WEB AND MOBILE /${id}/stdents/${val}`);
 
     await updateDoc(cityRef, {
-      capital: deleteField()
+      Contact:Contact,
+      className:className,
+      cnic:cnic,
+      fatherName: fatherName,
+      name:name,
+      file:file
     });
 
 }
+
 export {
     SignIn,
     addcourse,
