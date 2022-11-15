@@ -195,8 +195,8 @@ async function markAttendance(id,Roll_No,rollnmber){
  console.log(Roll_No);
  
   // Add a new document in collection "cities"
-// await addDoc(doc(db, `/WEB AND MOBILE /KzYqa9wyWZXqrcIbpAyu/stdents/FarooqZPD2LTLT/Attendance/Attendance-${generatePassword()}`), data1);
 await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
+// await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
 
 
 console.log(Roll_No);
