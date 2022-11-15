@@ -188,7 +188,7 @@ async function markAttendance(id,Roll_No,rollnmber){
  let data1 = {
    attend:rollnmber,
    date:d.getDate(),
-   time:d.getHours()+','+d.getMinutes()+','+d.getSeconds()
+   time:d.getTime()
  }
   
  console.log(id);
@@ -239,6 +239,8 @@ console.log(Roll_No);
 
 
 async function get_Attend(id,classID){
+  console.log(id);
+  console.log(classID);
   // const docRef = doc(db, `WEB AND MOBILE/oUFmpPGIbYe54bEv6lQ0 `, `stdents`,`Farooq40d7qgmt/Attendance`);
   const q = query(collection(db, `/WEB AND MOBILE /${classID}/stdents/${id}/Attendance`));
 

@@ -142,7 +142,7 @@ async function showStdents(){
 
      showStdents.innerHTML += 
      `
-     <div class="cards w-[300px] h-[300px] border-2  bg-[#3498db] " style='padding-top:50px;'>
+     <div class="card w-[350px] h-[330px] border-2  bg-[#3498db] " style='padding-top:50px;'>
      <div class="img w-full h-[120px]  flex justify-center items-center">
         <div class="img_box  h-[100px] border-2 " style="width:100px; border-radius:100%; background-image:url('${data[i].file}') ;background-size: 100% 100%;"></div>
      </div>
@@ -151,9 +151,9 @@ async function showStdents(){
         <p class="text-2xl font-black pl-5 text-white">${data[i].fatherName}</p>
         <p class="text-2xl font-black pl-5 text-white">${data[i].className}</p>
         
-        <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Delete('${data[i].id}')">Delete</button>
-        <button style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>
-        <button id='edit' style='margin-top:10px;' class="cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="EDIT('${data[i].id}')">EDIT</button>
+        <button style='margin-top:10px;' class="btn btn-dark cursor-pointer text-xl font-black  border-2 text-center mt-[46px] text-white" onclick="Delete('${data[i].id}')">Delete</button>
+        <button style='margin-top:10px;' class="btn btn-dark cursor-pointer text-xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>
+        <button id='edit' style='margin-top:10px;' class="btn btn-dark cursor-pointer text-2xl font-black  border-2 text-center mt-[46px] text-white" onclick="EDIT('${data[i].id}')">Edit</button>
         
      </div>
   </div>
