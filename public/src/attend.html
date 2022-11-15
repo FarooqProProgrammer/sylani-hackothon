@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
     <link href="../dist/output.css" rel="stylesheet">
 
     <title>Record</title>
@@ -17,15 +18,42 @@
 
 
 
-    <div id="attend" class="attendance w-full h-screen border-2 border-black flex flex-col justify-center items-center pt-5">
+    <div id="attend" style="overflow-y: auto; margin-top:40px;" class="attendance w-full h-screen border-2 border-black flex flex-col justify-center items-center pt-5">
 
 
-        <div style="width: 90%;" class="record h-[90%] border-2 border-black flex flex-col ">
-            <div class="attendace w-[80%] h-[100px] border-2 flex justify-around items-center">
-              <div style="width:	5.625rem;" class="date h-[100px] border-2 border-black text-2xl font-black text-center pt-5">Date</div>
-              <div style="width: 37.5rem;" class="atten h-[100px] border-2 border-black text-2xl font-black text-center pt-5">attendance</div>
-              <div style="width: 5.625rem;" class="titme  h-[100px] border-2 border-black text-2xl font-black text-center pt-5">Time</div>
-            </div>
+        <div class="container-fluid border border-dark w-100 " style="height:100vh ;">
+            <table class="table">
+                <thead>
+                  <tr>
+               
+                    <th scope="col">Date</th>
+                    <th scope="col">attendance</th>
+                    <th scope="col">Time</th>
+                  </tr>
+                </thead>
+                <tbody id="content">
+                  <tr>
+                    
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+               
+              
         </div>
 
 

@@ -10,7 +10,7 @@
     
 
     
-  <section id="whole_body" class="w-full h-full ">
+  <section  id="whole_body" class="w-full h-full ">
     <!-- ================= header =========================== -->
     <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
        <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
@@ -76,14 +76,14 @@
       </div>
    </section>
    <!-- ====================== Attendance Card Modal ============================== -->
-   <section id="modalad" class="Attendance w-full hidden h-screen  border-2 border-black flex justify-center items-center ">
-      <div id="ad" class="attendance_cards w-[60%] h-[90vh] border-2 border-black">
+   <section id="modalad" class="Attendance w-full hidden bg-[#3498db]  h-screen  border-2 border-white flex justify-center items-center ">
+      <div id="ad" class="attendance_cards w-[60%] h-[90vh] border-2 border-white">
          
-         <div class="img_Box w-full h-[130px] border-2 border-black">
-            <span class="text-3xl font-black cursor-pointer " id="hideModalAd">&times;</span>
+         <div class="img_Box w-full h-[130px] border-2 ">
+            <span style="color: #fff;" class="text-3xl font-black cursor-pointer " id="hideModalAd">&times;</span>
          </div>
-         <div class="content w-[full] h-[430px] border-2 border-black  pt-5  ">
-            <div class="roll_nmber lg:w-[100%] sm:w-full md:w-full h-[70px]  border-2 border-black flex">
+         <div class="content w-[full] h-[430px] border-2   pt-5  ">
+            <div class="roll_nmber lg:w-[100%] sm:w-full md:w-full h-[70px]  border-2  flex">
                <input id="RollNmber" type="text" class="w-[90%] h-full  text-xl font-black" placeholder="Roll Nmber">
                <select name="cars" id="cars" >
                   <option value="present">Select</option>
@@ -93,19 +93,19 @@
                   <option value="late" >late</option>
                 </select>
             </div>
-            <div  class="markAttendance " style="width: 100%; height:60px; border: 2px solid black; display: flex; justify-content: center; align-items: center; font-weight: bolder;">
+            <div  class="markAttendance " style="width: 100%; height:60px; color: white; font-size: 27px;  display: flex; justify-content: center; align-items: center; font-weight: bolder;">
                <button onclick="MarkAttendance()" >Mark Attendance</button>
             </div>
-            <div id="name" class="w-full font-black text-xl"></div>
-            <div id="fatherName" class="w-full font-black text-xl"></div>
-            <div id="class_Name" class="w-full font-black text-xl"></div>
+            <div  style="font-size: 27px; font-weight:bolder; color:#ffffff;" id="name" class="w-full font-black text-xl"></div>
+            <div  style="font-size: 27px; font-weight:bolder; color:#ffffff;" id="fatherName" class="w-full font-black text-xl"></div>
+            <div  style="font-size: 27px; font-weight:bolder; color:#ffffff;" id="class_Name" class="w-full font-black text-xl"></div>
          </div>
       </div>
 
-      <div id='popup' class="adminpassword hidden w-200px h-[100px] border-2 border-black flex flex-col">
-         <span class="font-black text-2xl cursor-pointer" id="close">&times;</span>
-            <input type="text" name="" id="passwordcheck" class="w-[200px] h-70px border-2 border-black mt-4">
-            <button onclick="checkpassword()" class="w-[200px] h-70px">check</button>
+      <div id='popup' class="adminpassword hidden w-200px h-[150px] border-2 border-white flex flex-col">
+         <span tyle="font-size: 27px; font-weight:bolder; color:#ffffff;"  class="font-black text-2xl cursor-pointer" id="close">&times;</span>
+            <input type="text" name="" id="passwordcheck" class="w-[200px] h-70px border-2  mt-4">
+            <button style="font-size: 27px; font-weight:bolder; color:#ffffff;" onclick="checkpassword()" class="w-[200px] h-70px">check</button>
       </div>
    </section>
 

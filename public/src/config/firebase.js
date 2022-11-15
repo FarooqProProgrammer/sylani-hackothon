@@ -201,15 +201,39 @@ await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Atten
 
 console.log(Roll_No);
   
-  // const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
-  const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No))
-  const docSnap = await getDoc(q);
+  // // const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
+  // const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No))
+  // const docSnap = await getDoc(q);
 
-  if (docSnap.exists()) {
-    console.log(docSnap.data());
-  } else {
-    console.log("No such document!");
-  }
+  // if (docSnap.exists()) {
+  //   console.log(docSnap.data());
+  // } else {
+  //   console.log("No such document!");
+  // }
+
+
+
+  const unsub = onSnapshot(doc(db, `/WEB AND MOBILE /${id}/stdents`, Roll_No), (doc) => {
+    console.log("Current data: ", doc.data());
+
+
+    
+
+      let name = document.getElementById("name")
+      let fatherName = document.getElementById("fatherName")
+      let class_Name = document.getElementById("class_Name")
+   
+      name.innerHTML ='Name: '+ doc.data().name
+      fatherName.innerHTML ="Father Name:" + doc.data().fatherName
+      class_Name.innerHTML ="CLass Name: " + doc.data().className
+   
+      swal({
+        title: "Attendance Marked SuccessFully",
+        text: "You clicked the button!",
+        icon: "success",
+      });
+
+});
 }
 
 

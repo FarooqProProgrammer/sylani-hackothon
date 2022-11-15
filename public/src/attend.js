@@ -26,4 +26,4 @@ async function attendance(){
     }
     console.log(id);
 }
-attendance()
+// attendance()
