@@ -172,47 +172,101 @@ window.check1 = function(){
     ad.classList.add("hidden")
     popp.classList.remove("hidden")
 }
+// ========================== check admin password ===================
+
+window.checkpassword = function (){
+    let inp = document.getElementById("passwordcheck").value
+
+    if (inp == 'farooq123'){
+
+
+        swal({
+            title: "Password is matched",
+            text: "You clicked the button!",
+            icon: "success",
+          });
+
+
+
+        let ad = document.getElementById('ad')
+        let popp = document.getElementById('popup')
+        ad.classList.remove("hidden")
+        popp.classList.add("hidden")
+    }
+
+    else{
+        swal({
+            title: "Password does not matched",
+            text: "You clicked the button!",
+            icon: "success",
+          });
+    }
+}
+
 // ======================== Attendance ===============================
-var no 
-window.jsFunction =async function (val){
+var no
+document.getElementById("cars").addEventListener("change",()=>{
+
+    let e = document.getElementById("cars")
+    console.log(e.selectedIndex );
 
 
+    let val 
+    if(e.selectedIndex == 1){
+        val = 'Present'
+    }
+    else if (e.selectedIndex == 2){
+        val = 'absent'
+    }
+    else if (e.selectedIndex == 3){
+        val = 'leave'
+    }
+    else if (e.selectedIndex == 4){
+        val = 'late'
+    }
+    
+    
+
+
+    console.log(val);
     if(val == 'leave' || val == 'absent'){
         check()
         check1()
     }
-    console.log(val.key);
+    console.log(val);
   
 
-no = val.key
+no = val
     if(val.key == "Enter"){
         console.log("Its Enter KEY");
     }
 
 
-   
-     
-}
+  
+})
+
 window.MarkAttendance = async function (){
     let v = window.location.href
     let id = v.slice(v.indexOf('=')+1)
 
 
     let ROllNmber = document.getElementById("RollNmber").value
-
+    console.log(no);
    let data =  await markAttendance(id,ROllNmber,no)
 
-    for(let i =0;i<data.length;i++){
+    //for(let i =0;i<data.length;i++){
 
-   let name = document.getElementById("name")
-   let fatherName = document.getElementById("fatherName")
-   let class_Name = document.getElementById("class_Name")
+   //let name = document.getElementById("name")
+   //let fatherName = document.getElementById("fatherName")
+   //let class_Name = document.getElementById("class_Name")
 
-   name.innerHTML ='Name: '+ data[i].name
-   fatherName.innerHTML ="Father Name:" + data[i].fatherName
-   class_Name.innerHTML ="CLass Name: " + data[i].className
-    }
+   //name.innerHTML ='Name: '+ data[i].name
+   //fatherName.innerHTML ="Father Name:" + data[i].fatherName
+   //class_Name.innerHTML ="CLass Name: " + data[i].className
+
+//}
 }
+
 
 
 

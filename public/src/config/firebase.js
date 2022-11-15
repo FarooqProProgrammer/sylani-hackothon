@@ -192,7 +192,7 @@ async function markAttendance(id,Roll_No,rollnmber){
  }
   
   // Add a new document in collection "cities"
-await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}`,'Attendance',`attend-${generatePassword()}`), data1);
+await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
 // await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance`), data1);
 
 
