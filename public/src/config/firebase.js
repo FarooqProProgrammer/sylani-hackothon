@@ -328,18 +328,23 @@ querySnapshot.forEach((doc) => {
 return data
 }
 // =============================================================================
-async function updateclass(value){
+async function updateclass(value,data){
 
-  const cityRef = doc(db, `/WEB AND MOBILE /${id}/stdents/${val}`);
+  console.log(data);
+  const {section,batch,time,schedule,teacher} = data
+
+  const cityRef = doc(db, `/WEB AND MOBILE /${value}`);
 
   await updateDoc(cityRef, {
-    Contact:Contact,
-    className:className,
-    cnic:cnic,
-    fatherName: fatherName,
-    name:name,
-    file:file
+    SectionName:section,
+    batch_nmber:batch,
+    classtiming:time,
+    scheduleOfClass: schedule,
+    teachers_name:teacher
   });
+
+
+ 
 }
 
 export {

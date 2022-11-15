@@ -148,6 +148,8 @@ window.hideupdate =  function (){
     modalADD.classList.add("hidden")
 }
 window.Update1  =async  function (val){
+
+    localStorage.setItem("id_classrom",JSON.stringify(val))
     console.log(val);
     openUpdate()
 
@@ -160,23 +162,13 @@ window.Update1  =async  function (val){
             console.log('Found '+data[i].id);
             flag = true
 
-            let section = document.getElementById("section").value
-            let batch = document.getElementById("batch").value
-            let time = document.getElementById("classTime").value
-            let schedule = document.getElementById("classSchedule").value
-            let teacher = document.getElementById("TeacherName").value
             
-            section = data[i].SectionName
-            batch = data[i].batch_nmber
-            time = data[i].classtiming
-            schedule = data[i].scheduleOfClass
-            teacher = data[i].teachers_name
 
             openUpdate()
 
 
 
-            await  updateclass ({section,batch,time,schedule,teacher})
+            
 
             
 
@@ -185,3 +177,24 @@ window.Update1  =async  function (val){
 
 
 }
+
+window.update1 =async  function (event){
+
+    event.preventDefault()
+
+    let section = document.getElementById("section").value
+            let batch = document.getElementById("batch").value
+            let time = document.getElementById("classTime").value
+            let schedule = document.getElementById("classSchedule").value
+            let teacher = document.getElementById("TeacherName").value
+            
+           
+
+            let val = JSON.parse(localStorage.getItem("id_classrom"))
+
+
+            await  updateclass (val,{section,batch,time,schedule,teacher})
+
+            alert("Updated SuccessFully")
+
+} 
