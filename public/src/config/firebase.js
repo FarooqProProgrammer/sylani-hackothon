@@ -191,20 +191,23 @@ async function markAttendance(id,Roll_No,rollnmber){
    time:d.getHours()+','+d.getMinutes()+','+d.getSeconds()
  }
   
+ console.log(id);
+ console.log(Roll_No);
+ 
   // Add a new document in collection "cities"
-// await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
+// await addDoc(doc(db, `/WEB AND MOBILE /KzYqa9wyWZXqrcIbpAyu/stdents/FarooqZPD2LTLT/Attendance/Attendance-${generatePassword()}`), data1);
 await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
 
 
 console.log(Roll_No);
   
-  const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
+  // const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
+  const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No))
   const docSnap = await getDoc(q);
 
   if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
+    console.log(docSnap.data());
   } else {
-    // doc.data() will be undefined in this case
     console.log("No such document!");
   }
 }

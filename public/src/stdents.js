@@ -251,20 +251,22 @@ window.MarkAttendance = async function (){
 
 
     let ROllNmber = document.getElementById("RollNmber").value
-    console.log(no);
+    console.log(ROllNmber);
    let data =  await markAttendance(id,ROllNmber,no)
 
-    //for(let i =0;i<data.length;i++){
 
-   //let name = document.getElementById("name")
-   //let fatherName = document.getElementById("fatherName")
-   //let class_Name = document.getElementById("class_Name")
+   console.log(data);
+//     for(let i =0;i<data.length;i++){
 
-   //name.innerHTML ='Name: '+ data[i].name
-   //fatherName.innerHTML ="Father Name:" + data[i].fatherName
-   //class_Name.innerHTML ="CLass Name: " + data[i].className
+//    let name = document.getElementById("name")
+//    let fatherName = document.getElementById("fatherName")
+//    let class_Name = document.getElementById("class_Name")
 
-//}
+//    name.innerHTML ='Name: '+ data[i].name
+//    fatherName.innerHTML ="Father Name:" + data[i].fatherName
+//    class_Name.innerHTML ="CLass Name: " + data[i].className
+
+// }
 }
 
 
