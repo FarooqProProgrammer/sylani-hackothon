@@ -105,7 +105,7 @@ window.addStdentDetail =  async function (event){
     let name = document.getElementById('Name').value
     let className = document.getElementById('class').value
     let father = document.getElementById('father').value
-    let Roll = document.getElementById('Roll').value
+   
     let Contact = document.getElementById('Contact').value
     let cnic = document.getElementById('cnic').value
     let file = document.getElementById('file').value
