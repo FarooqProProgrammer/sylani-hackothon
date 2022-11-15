@@ -1,4 +1,10 @@
-import {addcourse,getRealtime,deleteClass} from './config/firebase.js'
+import {
+    addcourse,
+    getRealtime,
+    deleteClass,
+    updateModel,
+    updateclass
+} from './config/firebase.js'
 
 
 
@@ -98,6 +104,8 @@ async function getClass(){
       <td>${cities[i].SectionName}</td>
       <td>${cities[i].teachers_name}</td>
       <td><button type="button" class="btn btn-primary text-warning" onclick="gotoClass('${cities[i].id}')" >View</button></td>
+      <td><button type="button" class="btn btn-primary text-warning" onclick="Update1('${cities[i].id}')" >Update</button></td>
+      
     </tr>
       `
       
@@ -113,6 +121,67 @@ window.gotoClass = function (val){
 
     localStorage.setItem("id_classrom",JSON.stringify(val))
     location.href = `./index3.html?=${val}`
+
+
+}
+
+function openUpdate(){
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.add("hidden")
+
+    let modalADD  = document.getElementById("update")
+    modalADD.classList.add("absolute")
+    modalADD.classList.remove("hidden")
+}
+
+
+window.hideupdate =  function (){
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.remove("hidden")
+
+    let modalADD  = document.getElementById("update")
+    modalADD.classList.remove("absolute")
+    modalADD.classList.add("hidden")
+}
+window.Update1  =async  function (val){
+    console.log(val);
+    openUpdate()
+
+    let data = await updateModel()
+
+
+    let flag = false
+    for(let i=0;i<data.length;i++){
+        if(data[i].id == val){
+            console.log('Found '+data[i].id);
+            flag = true
+
+            let section = document.getElementById("section").value
+            let batch = document.getElementById("batch").value
+            let time = document.getElementById("classTime").value
+            let schedule = document.getElementById("classSchedule").value
+            let teacher = document.getElementById("TeacherName").value
+            
+            section = data[i].SectionName
+            batch = data[i].batch_nmber
+            time = data[i].classtiming
+            schedule = data[i].scheduleOfClass
+            teacher = data[i].teachers_name
+
+            openUpdate()
+
+
+
+            await  updateclass ({section,batch,time,schedule,teacher})
+
+            
+
+        }
+    }
 
 
 }

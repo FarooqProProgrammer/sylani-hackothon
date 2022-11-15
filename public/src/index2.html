@@ -7,7 +7,7 @@
   <link href="../dist/output.css" rel="stylesheet">
 </head>
 <body>
-    <section id="whole_body" class="w-full    h-full ">
+    <section id="whole_body" class="w-full   h-full ">
  <!-- ================= header =========================== -->
  <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
     <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
@@ -19,7 +19,7 @@
     <section class="class-btn w-full h-[150px] border-2 border-black flex justify-around items-center">
         <button onclick="Add()" class="border-2 bg-[#3498db] text-white border-black pt-3 pb-3 pr-5 pl-5">Add </button>
         <button id="delete" class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">delete</button>
-        <button class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">update</button>
+        <button  class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">update</button>
     </section>
 
 
@@ -52,7 +52,7 @@
 
 </section>
 
-<footer class="p-4  bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+<footer class="p-4  d-none bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
    <div class="sm:flex sm:items-center sm:justify-between">
        
        <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
@@ -153,6 +153,95 @@
             </form>
          </div>
     </section>
+
+
+
+
+    <!-- ============================= UPDATE MODAL =============================== -->
+    <div class="container hidden" id="update">
+      <span class="text-2xl font-black cursor-pointer" onclick="hideupdate()">&times;</span>
+      <div class="form-body pt-10">
+         <div class="row">
+             <div class="form-holder">
+                 <div class="form-content">
+                     <div class="form-items">
+                         <h3>UPDATE CLASS DETAIL</h3>
+                         
+                         <form class="requires-validation" >
+ 
+                             <div class="col-md-12 mt-2">
+                                <input class="form-control" id="section" type="text" name="name" placeholder="Enter Section Name">
+                             
+                             </div>
+ 
+                             <div class="col-md-12 mt-2">
+                                 <input class="form-control" id="batch" type="text" name="email" placeholder="batch_nmber" >
+                                  
+                             </div>
+                             <div class="col-md-12 mt-2">
+                                 <input class="form-control" id="classTime" type="text" name="email" placeholder="classtiming" >
+                               
+                              </div>
+                          <div class="col-md-12 mt-2">
+                              <input class="form-control" id="classSchedule" type="text" name="email" placeholder="class Schedule" >
+                            
+                           </div>
+                           <div class="col-md-12 mt-2">
+                              <input class="form-control" id="TeacherName" type="text" name="email" placeholder="Enter Teacher Name" >
+                            
+                           </div>
+                            <!-- <div class="col-md-12">
+                                 <select class="form-select mt-3" required>
+                                       <option selected disabled value="">Position</option>
+                                       <option value="jweb">Junior Web Developer</option>
+                                       <option value="sweb">Senior Web Developer</option>
+                                       <option value="pmanager">Project Manager</option>
+                                </select>
+                                 <div class="valid-feedback">You selected a position!</div>
+                                 <div class="invalid-feedback">Please select a position!</div>
+                            </div> -->
+ 
+ 
+                            <!-- <div class="col-md-12">
+                               <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                <div class="valid-feedback">Password field is valid!</div>
+                                <div class="invalid-feedback">Password field cannot be blank!</div>
+                            </div> -->
+ 
+ 
+                            <!-- <div class="col-md-12 mt-3">
+                             <label class="mb-3 mr-1" for="gender">Gender: </label>
+ 
+                             <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
+                             <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+ 
+                             <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
+                             <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+ 
+                             <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
+                             <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
+                                <div class="valid-feedback mv-up">You selected a gender!</div>
+                                 <div class="invalid-feedback mv-up">Please select a gender!</div>
+                             </div>
+ 
+                         <div class="form-check">
+                           <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                           <label class="form-check-label">I confirm that all data are correct</label>
+                          <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                         </div> -->
+                   
+ 
+                             <div class="form-button mt-3">
+                                 <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+    </div>
 
     <script type="module" src="./config/firebase.js"></script>
     <script type="module" src="./corse.js"></script>

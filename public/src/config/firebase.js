@@ -196,7 +196,7 @@ async function markAttendance(id,Roll_No,rollnmber){
  
   // Add a new document in collection "cities"
 await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
-// await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
+// await setDoc(doc(db, `/WEB AND MOBILE `,${classID},'student',${studentID},'AttendanceID',"Attendance-${generatePassword()}"), data1);
 
 
 console.log(Roll_No);
@@ -311,6 +311,37 @@ async function update(Contact,className,cnic,fatherName,name,file,val){
 
 }
 
+// ============================= Update Model ===================================
+
+async function updateModel(){
+
+  const q = query(collection(db, `/WEB AND MOBILE `));
+
+  const data = []
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+  data.push({id:doc.id,...doc.data()})
+});
+
+return data
+}
+// =============================================================================
+async function updateclass(value){
+
+  const cityRef = doc(db, `/WEB AND MOBILE /${id}/stdents/${val}`);
+
+  await updateDoc(cityRef, {
+    Contact:Contact,
+    className:className,
+    cnic:cnic,
+    fatherName: fatherName,
+    name:name,
+    file:file
+  });
+}
+
 export {
     SignIn,
     addcourse,
@@ -323,5 +354,7 @@ export {
     update,
     singlestudents,
     getRealtimeData,
-    get_Attend
+    get_Attend,
+    updateModel,
+    updateclass
   }
