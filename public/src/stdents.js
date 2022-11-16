@@ -5,7 +5,8 @@ import{ADD_DATA,getRealTimeStdents,
 
 document.getElementById("add").addEventListener("click",()=>{
     let body  = document.getElementById("whole_body")
-   
+    let footer = document.getElementById("footer")
+    footer.classList.add("hidden")
     
     body.classList.add("hidden")
 
@@ -18,7 +19,8 @@ document.getElementById('hideModal').addEventListener("click",()=>{
 
     let body  = document.getElementById("whole_body")
    
-    
+    let footer = document.getElementById("footer")
+    footer.classList.remove("hidden")
     body.classList.remove("hidden")
 
     let modalADD  = document.getElementById("modalAdd")
@@ -56,7 +58,8 @@ document.getElementById("close").addEventListener("click",async ()=>{
 
     let body  = document.getElementById("whole_body")
    
-    
+    let footer = document.getElementById("footer")
+    footer.classList.remove("hidden")
     body.classList.remove("hidden")
     let modalADD  = document.getElementById("transfer")
     // modalADD.classList.add("absolute")
@@ -97,7 +100,8 @@ document.getElementById("attendance").addEventListener("click",()=>{
 
     let body  = document.getElementById("whole_body")
     body.classList.add("hidden")
-
+    let footer = document.getElementById("footer")
+    footer.classList.add("hidden")
 
     let modalADD  = document.getElementById("modalad")
     modalADD.classList.add("absolute")
@@ -113,7 +117,8 @@ document.getElementById("attendance").addEventListener("click",()=>{
 document.getElementById('hideModalAd').addEventListener("click",()=>{
     let body  = document.getElementById("whole_body")
     body.classList.remove("hidden")
-
+    let footer = document.getElementById("footer")
+    footer.classList.remove("hidden")
 
     let modalADD  = document.getElementById("modalad")
     modalADD.classList.remove("absolute")
@@ -179,7 +184,7 @@ async function showStdents(){
 
      showStdents.innerHTML += 
      `
-     <div class="card w-[350px] h-[330px] border-2  bg-[#3498db] " style='padding-top:50px;'>
+     <div  class="card w-[350px] h-[330px] border-2  bg-[#3498db] " style='padding-top:50px;'>
      <div class="img w-full h-[120px]  flex justify-center items-center">
         <div class="img_box  h-[100px] border-2 " style="width:100px; border-radius:100%; background-image:url('${data[i].file}') ;background-size: 100% 100%;"></div>
      </div>
@@ -307,12 +312,6 @@ document.getElementById("close").addEventListener("click",()=>{
 
 
 })
-document.getElementById("RollNmber").addEventListener("keydown",async (val)=>{
-
- 
-
-  
-})
 
 
 
@@ -331,6 +330,7 @@ window.Delete =async function (val){
         icon: "success",
       });
       
+      window.location.reload()
 }
 
 
@@ -383,7 +383,8 @@ window.EDIT =async function (val){
 
     let body  = document.getElementById("whole_body")
     body.classList.add("hidden")
-
+    let footer = document.getElementById("footer")
+    footer.classList.add("hidden")
     let modalADD  = document.getElementById("updateAdd")
     modalADD.classList.add("absolute")
     modalADD.classList.remove("hidden")
@@ -401,7 +402,8 @@ document.getElementById("hideEdit").addEventListener("click",()=>{
 
     let body  = document.getElementById("whole_body")
     body.classList.remove("hidden")
-
+    let footer = document.getElementById("footer")
+    footer.classList.remove("hidden")
     let modalADD  = document.getElementById("updateAdd")
     modalADD.classList.remove("absolute")
     modalADD.classList.add("hidden")
