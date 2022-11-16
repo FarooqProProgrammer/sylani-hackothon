@@ -159,7 +159,7 @@ async function getRealTimeStdents(){
 
   let id = JSON.parse(localStorage.getItem("id_classrom"))
 
-  const q = query(collection(db, `WEB AND MOBILE /${id}`, "stdents"));
+  const q = query(collection(db, `WEB AND MOBILE /${id}`, "stdents"),where("isExist","==",true));
   let data = []
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -171,13 +171,14 @@ async function getRealTimeStdents(){
     
     
 
-    // ================================================ MArk Attendance =========================
+   
 
 
 
  
 
 }
+ // ================================================ MArk Attendance =========================
 async function markAttendance(id,Roll_No,rollnmber){
 
   // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance');
@@ -347,6 +348,89 @@ async function updateclass(value,data){
  
 }
 
+
+
+// =========================================================================
+async function student(){
+ 
+
+    let id = JSON.parse(localStorage.getItem("id_classrom"))
+  
+    const q = query(collection(db, `WEB AND MOBILE /${id}`, "stdents"));
+    let data = []
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log({id:doc.id, ...doc.data()});
+      data.push({id:doc.id, ...doc.data()})
+    });
+
+
+    // =================================================
+    
+      
+      let studentID = 'Khurramsodb9GkN'
+
+      let student_data = ''
+
+      for(let i=0;i<data.length;i++){
+        if(data[i].id == studentID){
+          student_data = data[i]
+        }
+      }
+
+      console.log(student_data);
+  
+
+      const cityRef = doc(db, `/WEB AND MOBILE /${id}/stdents/${studentID}`);
+      await updateDoc(cityRef, {
+        isExist:false
+      });
+
+   
+
+
+
+      // =================== Attendance =======================================
+      const q1 = query(collection(db, `/WEB AND MOBILE /${id}/stdents/${studentID}/Attendance`));
+      const attend_data = []
+      const querySnapshot2 = await getDocs(q1);
+      querySnapshot2.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log({id:doc.id,... doc.data()});
+        attend_data.push({id:doc.id,... doc.data()})
+      });
+
+      // ===================== awaitn set doc =======================================
+
+      for(let i=0;i<attend_data.length;i++){
+        await setDoc(doc(db, `/WEB AND MOBILE /BvQxe56TH4aNN6rjgRi0/stdents/${studentID}/Attendance/${attend_data[i].id}`), 
+        {
+
+          time:attend_data[i].time,
+          date:attend_data[i].date,
+          attend:attend_data[i].attend
+        });
+      }
+
+     
+
+      // ========================= another section transfer =============================
+
+
+      await setDoc(doc(db, `/WEB AND MOBILE /BvQxe56TH4aNN6rjgRi0/stdents/${student_data.id}`), student_data);
+        const cityRef1 = doc(db, `/WEB AND MOBILE /BvQxe56TH4aNN6rjgRi0/stdents/${studentID}`);
+      await updateDoc(cityRef1, {
+        isExist:true
+      });
+      return data
+  
+  
+   
+  
+  
+}
+// student()
 export {
     SignIn,
     addcourse,
