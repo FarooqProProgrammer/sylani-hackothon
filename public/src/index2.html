@@ -16,10 +16,10 @@
 
 
 
-    <section class="class-btn w-full h-[150px] border-2 border-black flex justify-around items-center">
-        <button onclick="Add()" class="border-2 bg-[#3498db] text-white border-black pt-3 pb-3 pr-5 pl-5">Add </button>
-        <button id="delete" class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">delete</button>
-        <button  class="border-2 border-black bg-[#3498db] text-white pt-3 pb-3 pr-5 pl-5">update</button>
+    <section class="class-btn w-full h-[150px] mt-6 flex justify-around items-center">
+        <button onclick="Add()" class="btn btn-primary pt-3 pb-3 pr-5 pl-5">Add </button>
+        <button id="delete" class="btn btn-primary pt-3 pb-3 pr-5 pl-5">delete</button>
+        <button  class="btn btn-primary pt-3 pb-3 pr-5 pl-5">update</button>
     </section>
 
 
@@ -76,14 +76,14 @@
 </footer>
 
    <!-- ============================= delete Modal ======================================= -->
-   <section id="deleteModal" style="height: 100vh;" class="delete hidden flex justify-center items-center  w-full  border-2 border-black bg-[#3498db]">
-      <div style="height: 65vh;" class="border-2 border-white w-[500px] ">
+   <section id="deleteModal" style="height: 100vh;" class="delete hidden flex justify-center items-center  w-full   ">
+      <div style="height: 65vh;" class="border-2  w-[500px] bg-[#3498db] " style="box-shadow: 5px 3px 4px 4px grey;">
          <span id="HidedeleteModal" class="w-full text-3xl font-black cursor-pointer text-white">&times;</span>
          <div style="height: 59vh;" class="inpt w-full    flex flex-col justify-around items-center">
             <div style="height:10vh; " class="input w-[90%]">
                <input type="text"  id="deleteInput" style="color: #7f8c8d; text-align:center;" class="w-full h-full  text-3xl font-black " placeholder="Enter ID TO Delete">
             </div>
-            <button id="DELETECLASS" class="text-white font-black text-3xl" style="width: 200px; height:50px; border:2px solid white;">Delete</button>
+            <button id="DELETECLASS" class="btn btn-info text-3xl" style="width: 200px; color: white; height:50px; border:2px solid white;">Delete</button>
          </div>
       </div>
    </section>
@@ -190,45 +190,7 @@
                               <input class="form-control" id="TeacherName" type="text" name="email" placeholder="Enter Teacher Name" >
                             
                            </div>
-                            <!-- <div class="col-md-12">
-                                 <select class="form-select mt-3" required>
-                                       <option selected disabled value="">Position</option>
-                                       <option value="jweb">Junior Web Developer</option>
-                                       <option value="sweb">Senior Web Developer</option>
-                                       <option value="pmanager">Project Manager</option>
-                                </select>
-                                 <div class="valid-feedback">You selected a position!</div>
-                                 <div class="invalid-feedback">Please select a position!</div>
-                            </div> -->
- 
- 
-                            <!-- <div class="col-md-12">
-                               <input class="form-control" type="password" name="password" placeholder="Password" required>
-                                <div class="valid-feedback">Password field is valid!</div>
-                                <div class="invalid-feedback">Password field cannot be blank!</div>
-                            </div> -->
- 
- 
-                            <!-- <div class="col-md-12 mt-3">
-                             <label class="mb-3 mr-1" for="gender">Gender: </label>
- 
-                             <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
-                             <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
- 
-                             <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
-                             <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
- 
-                             <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
-                             <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
-                                <div class="valid-feedback mv-up">You selected a gender!</div>
-                                 <div class="invalid-feedback mv-up">Please select a gender!</div>
-                             </div>
- 
-                         <div class="form-check">
-                           <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                           <label class="form-check-label">I confirm that all data are correct</label>
-                          <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                         </div> -->
+                          
                    
  
                              <div class="form-button mt-3">
