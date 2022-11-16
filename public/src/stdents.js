@@ -363,16 +363,6 @@ await update(contact,class1,cnic,father,name,file,val)
 
  }
 
-// ========================================
-// document.getElementById("rollNO").addEventListener("keydown",async (val)=>{
-
-//     let v = window.location.href
-//     let classID = v.slice(v.indexOf('=')+1)
-//     let no = document.getElementById("rollNO").value
-
-//    await getRealtimeData(no,classID)
-
-// })
 
 
 
