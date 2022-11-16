@@ -24,7 +24,34 @@ document.getElementById('hideModal').addEventListener("click",()=>{
     modalADD.classList.add("hidden")
 
 })
+// ====================================================
+window.transfer = function (event){
+    event.preventDefault()
 
+    
+}
+
+// =========================
+
+window.transfer = function (){
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.add("hidden")
+    let modalADD  = document.getElementById("transfer")
+    // modalADD.classList.add("absolute")
+    modalADD.classList.remove("d-none")
+}
+document.getElementById("close").addEventListener("click",async ()=>{
+
+    let body  = document.getElementById("whole_body")
+   
+    
+    body.classList.remove("hidden")
+    let modalADD  = document.getElementById("transfer")
+    // modalADD.classList.add("absolute")
+    modalADD.classList.add("d-none")
+})
 
 // ========================== update modal ========================================
 

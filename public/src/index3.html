@@ -11,7 +11,7 @@
     
 
     
-  <section  id="whole_body" class="w-full h-full ">
+  <section  id="whole_body" class="w-full  h-full ">
     <!-- ================= header =========================== -->
     <header class="w-full h-[70px] border-2  pl-5 bg-[#3498db] flex justify-between items-center">
        <p class="text-2xl font-black  text-[#ecf0f1]">Sylani Mass It Training Center</p>
@@ -25,6 +25,7 @@
           
            
            <button id="attendance" class="border-2  bg-[#3498db] pt-3 pb-3 pr-5 pl-5 text-white">Attendance</button>
+           <button onclick="transfer()" class="border-2  bg-[#3498db] pt-3 pb-3 pr-5 pl-5 text-white">transfer</button>
            
        </section>
    
@@ -44,7 +45,7 @@
    
    
    </section>
-   <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+   <footer class="p-4 bg-white hidden rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
       <div class="sm:flex sm:items-center sm:justify-between">
           
           <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
@@ -66,7 +67,26 @@
       <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">sylani</a>. All Rights Reserved.
       </span>
    </footer>
-   
+   <!-- ========================== student transfer Modal ============================-->
+   <section id="transfer"  class="transfer d-none w-full h-screen border-2 border-black relative d-flex justify-center items-center">
+      <span id="close" style="left:0; top:0; position:absolute; font-size:30px;" class="text-2xl font-black cursor-pointer">&times;</span>  
+      <form class="w-50"  onsubmit="transfer(event)">
+               <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Current Section</label>
+                  <input placeholder="Enter Current Section Id" type="text" class="form-control" id="Current_section" aria-describedby="emailHelp">
+               </div>
+               <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Transfer Section</label>
+                  <input placeholder="Enter transfer Section Id" type="text" class="form-control" id="Transfer_section" aria-describedby="emailHelp">
+               </div>
+               <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Student Id</label>
+                  <input placeholder="Enter Student Id" type="text" class="form-control" id="student_section" aria-describedby="emailHelp">
+               </div>
+               <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+         
+   </section>
 
    <!-- =========================== delete =========================== -->
    <section  id="d" class="delete w-full h-screen  hidden border-2 border-black flex justify-center items-center">
