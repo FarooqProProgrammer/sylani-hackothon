@@ -1,4 +1,6 @@
-import{ADD_DATA,getRealTimeStdents,getRealtimeData,markAttendance,deletestdent,update,singlestudents} from './config/firebase.js'
+import{ADD_DATA,getRealTimeStdents,
+    student,
+    getRealtimeData,markAttendance,deletestdent,update,singlestudents} from './config/firebase.js'
 
 
 document.getElementById("add").addEventListener("click",()=>{
@@ -25,11 +27,19 @@ document.getElementById('hideModal').addEventListener("click",()=>{
 
 })
 // ====================================================
-window.transfer = function (event){
-    event.preventDefault()
+
+
+document.getElementById('transfer').addEventListener("click",async ()=>{
+
+    let current = document.getElementById("Current_section").value
+    let transfer = document.getElementById("Transfer_section").value
+    let section = document.getElementById("student_section").value
+
+
+    await student(current,section,transfer)
+})
 
     
-}
 
 // =========================
 

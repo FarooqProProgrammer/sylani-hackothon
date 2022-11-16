@@ -70,7 +70,7 @@
    <!-- ========================== student transfer Modal ============================-->
    <section id="transfer"  class="transfer d-none w-full h-screen border-2 border-black relative d-flex justify-center items-center">
       <span id="close" style="left:0; top:0; position:absolute; font-size:30px;" class="text-2xl font-black cursor-pointer">&times;</span>  
-      <form class="w-50"  onsubmit="transfer(event)">
+      <div class="w-50"  >
                <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Current Section</label>
                   <input placeholder="Enter Current Section Id" type="text" class="form-control" id="Current_section" aria-describedby="emailHelp">
@@ -83,8 +83,8 @@
                   <label for="exampleInputEmail1" class="form-label">Student Id</label>
                   <input placeholder="Enter Student Id" type="text" class="form-control" id="student_section" aria-describedby="emailHelp">
                </div>
-               <button type="submit" class="btn btn-primary">Submit</button>
-         </form>
+               <button  id="transfer"  class="btn btn-primary">Submit</button> 
+            </div>
          
    </section>
 

@@ -351,12 +351,14 @@ async function updateclass(value,data){
 
 
 // =========================================================================
-async function student(){
+async function student(current,section,transfer){
  
+  console.log(section);
+  console.log(transfer);
 
     let id = JSON.parse(localStorage.getItem("id_classrom"))
   
-    const q = query(collection(db, `WEB AND MOBILE /${id}`, "stdents"));
+    const q = query(collection(db, `WEB AND MOBILE /`,id, "stdents"));
     let data = []
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -369,7 +371,7 @@ async function student(){
     // =================================================
     
       
-      let studentID = 'Khurramsodb9GkN'
+      let studentID = section
 
       let student_data = ''
 
@@ -404,7 +406,7 @@ async function student(){
       // ===================== awaitn set doc =======================================
 
       for(let i=0;i<attend_data.length;i++){
-        await setDoc(doc(db, `/WEB AND MOBILE /BvQxe56TH4aNN6rjgRi0/stdents/${studentID}/Attendance/${attend_data[i].id}`), 
+        await setDoc(doc(db, `/WEB AND MOBILE /${transfer}/stdents/${studentID}/Attendance/${attend_data[i].id}`), 
         {
 
           time:attend_data[i].time,
@@ -418,8 +420,8 @@ async function student(){
       // ========================= another section transfer =============================
 
 
-      await setDoc(doc(db, `/WEB AND MOBILE /BvQxe56TH4aNN6rjgRi0/stdents/${student_data.id}`), student_data);
-        const cityRef1 = doc(db, `/WEB AND MOBILE /BvQxe56TH4aNN6rjgRi0/stdents/${studentID}`);
+      await setDoc(doc(db, `/WEB AND MOBILE /${transfer}/stdents/${student_data.id}`), student_data);
+        const cityRef1 = doc(db, `/WEB AND MOBILE /${transfer}/stdents/${studentID}`);
       await updateDoc(cityRef1, {
         isExist:true
       });
@@ -445,5 +447,6 @@ export {
     getRealtimeData,
     get_Attend,
     updateModel,
-    updateclass
+    updateclass,
+    student
   }
