@@ -83,7 +83,9 @@ async function addcourse(name,another){
     }
   // Add a new document with a generated id.
     const docRef = await addDoc(collection(db, "WEB AND MOBILE "), docment);
-  console.log("Document written with ID: ", docRef.id);
+    //  await setDoc(doc(db, `WEB AND MOBILE `,SectionName), docment);
+    
+ 
 }   
 
 
@@ -381,6 +383,8 @@ async function student(current,section,transfer){
         }
       }
 
+
+      
       console.log(student_data);
   
 
