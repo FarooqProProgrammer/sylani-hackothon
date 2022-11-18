@@ -480,7 +480,7 @@ let details = {
 }
 
 
-
+extra(details)
 
 
     
@@ -502,7 +502,6 @@ let details = {
  await setDoc(doc(db, `/WEB AND MOBILE /data/student-transfer/data-${generatePassword()}`), details);
 
 
-
       return data
   
   
@@ -513,7 +512,29 @@ let details = {
 
 
 
+async function extra(details){
+  
 
+  const docRef = await addDoc(collection(db, "Details"), details);
+  console.log("Document written with ID: ", docRef.id);
+  
+  
+}
+
+// ================= get all student information =======================
+async function getstudent(){
+    const q = query(collection(db, "Details"));
+
+    const data = []
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+    
+      console.log(doc.id, " => ", doc.data());
+      data.push({id:doc.id,...doc.data()})
+    });
+
+    return data
+}
 
 // student()
 export {
@@ -531,5 +552,6 @@ export {
     get_Attend,
     updateModel,
     updateclass,
-    student
+    student,
+    getstudent
   }
