@@ -262,7 +262,7 @@ async function get_Attend(id,classID){
 async function deleteClass(id){
 
 
-  await deleteDoc(doc(db, `/WEB AND MOBILE /`,id));
+  await deleteDoc(doc(db, `/WEB AND MOBILE /${id}`));
   console.log("Delete Successfully");
 }
 

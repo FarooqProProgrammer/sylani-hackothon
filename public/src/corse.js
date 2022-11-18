@@ -49,7 +49,7 @@ document.getElementById("HidedeleteModal").addEventListener("click", ()=>{
 document.getElementById("DELETECLASS").addEventListener("click",async ()=>{
 
     let id = document.getElementById("deleteInput").value
-    id = ''
+  
     await deleteClass(id)
     swal({
         title: "Deleted Successfully !",
@@ -100,11 +100,11 @@ async function getClass(){
       console.log(cities[i].id);
       showclass.innerHTML += `
       <tr>
-            
-      <td>${cities[i].SectionName}</td>
-      <td>${cities[i].teachers_name}</td>
-      <td><button type="button" class="btn btn-primary text-warning" onclick="gotoClass('${cities[i].id}')" >View</button></td>
-      <td><button type="button" class="btn btn-primary text-warning" onclick="Update1('${cities[i].id}')" >Update</button></td>
+                <td>${cities[i].id}</td>    
+                <td>${cities[i].SectionName}</td>
+                <td>${cities[i].teachers_name}</td>
+                <td><button type="button" class="btn btn-primary text-warning" onclick="gotoClass('${cities[i].id}')" >View</button></td>
+                <td><button type="button" class="btn btn-primary text-warning" onclick="Update1('${cities[i].id}')" >Update</button></td>
       
     </tr>
       `
