@@ -271,17 +271,17 @@ document.getElementById("cars").addEventListener("change",()=>{
     
 
 
-    console.log(val);
+    // console.log(val);.
     if(val == 'leave' || val == 'absent'){
         check()
         check1()
     }
-    console.log(val);
+    // console.log(val);
   
 
 no = val
     if(val.key == "Enter"){
-        console.log("Its Enter KEY");
+        // console.log("Its Enter KEY");
     }
 
 
@@ -294,7 +294,7 @@ window.MarkAttendance = async function (){
 
 
     let ROllNmber = document.getElementById("RollNmber").value
-    console.log(ROllNmber);
+    // console.log(ROllNmber);
     await markAttendance(id,ROllNmber,no)
 
     

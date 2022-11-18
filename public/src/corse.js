@@ -97,7 +97,7 @@ async function getClass(){
     let showclass = document.getElementById("showclass")
     showclass.innerHTML = ''
     for(let i =0;i<cities.length;i++){
-      console.log(cities[i].id);
+    //   console.log(cities[i].id);
       showclass.innerHTML += `
       <tr>
                 <td>${cities[i].id}</td>    
@@ -150,7 +150,7 @@ window.hideupdate =  function (){
 window.Update1  =async  function (val){
 
     localStorage.setItem("id_classrom",JSON.stringify(val))
-    console.log(val);
+    // console.log(val);
     openUpdate()
 
     let data = await updateModel()
@@ -159,7 +159,7 @@ window.Update1  =async  function (val){
     let flag = false
     for(let i=0;i<data.length;i++){
         if(data[i].id == val){
-            console.log('Found '+data[i].id);
+            // console.log('Found '+data[i].id);
             flag = true
 
             

@@ -6,7 +6,7 @@ async function renderdetail(){
 
     let data = await getstudent()
 
-    console.log(data);
+    // console.log(data);
     let body = document.getElementById("body")
 
         for(var i=0;i<data.length;i++){

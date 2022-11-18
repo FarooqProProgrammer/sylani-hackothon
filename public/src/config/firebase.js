@@ -36,7 +36,7 @@ function SignIn(email,password){
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user);
+      // console.log(user);
 
       window.location = './src/index2.html'
     
@@ -147,12 +147,12 @@ function generatePassword() {
 async function ADD_DATA(id,collection1){
   const {Roll_No} = collection1
   localStorage.setItem("ClassID",JSON.stringify(id))
-  console.log(id);
-  console.log(Roll_No);
-  console.log(collection1);
+  // console.log(id);
+  // console.log(Roll_No);
+  // console.log(collection1);
 // Add a new document in collection "cities"
   await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents`, Roll_No),collection1)
-  console.log('dasdawdawd');
+  // console.log('dasdawdawd');
   window.location.reload()
 } 
 
@@ -168,7 +168,7 @@ async function getRealTimeStdents(){
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    console.log({id:doc.id, ...doc.data()});
+    // console.log({id:doc.id, ...doc.data()});
     data.push({id:doc.id, ...doc.data()})
   });
   return data
@@ -188,7 +188,7 @@ async function markAttendance(id,Roll_No,rollnmber){
   // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance');
  // const washingtonRef = doc(db, `WEB AND MOBILE `,id, `stdents`,Roll_No,'Attendance','attend');
 
- console.log(Roll_No);
+//  console.log(Roll_No);
   let d = new Date()
  let data1 = {
    attend:rollnmber,
@@ -196,15 +196,15 @@ async function markAttendance(id,Roll_No,rollnmber){
    time:d.getTime()
  }
   
- console.log(id);
- console.log(Roll_No);
+//  console.log(id);
+//  console.log(Roll_No);
  
   // Add a new document in collection "cities"
 await setDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${Roll_No}/Attendance/Attendance-${generatePassword()}`), data1);
 // await setDoc(doc(db, `/WEB AND MOBILE `,${classID},'student',${studentID},'AttendanceID',"Attendance-${generatePassword()}"), data1);
 
 
-console.log(Roll_No);
+// console.log(Roll_No);
   
   // // const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No));
   // const q = query(collection(db, `/WEB AND MOBILE /${id}/stdents`),where("Roll_No",'==',Roll_No))
@@ -219,7 +219,7 @@ console.log(Roll_No);
 
 
   const unsub = onSnapshot(doc(db, `/WEB AND MOBILE /${id}/stdents`, Roll_No), (doc) => {
-    console.log("Current data: ", doc.data());
+    // console.log("Current data: ", doc.data());
 
 
     
@@ -244,8 +244,8 @@ console.log(Roll_No);
 
 
 async function get_Attend(id,classID){
-  console.log(id);
-  console.log(classID);
+  // console.log(id);
+  // console.log(classID);
   // const docRef = doc(db, `WEB AND MOBILE/oUFmpPGIbYe54bEv6lQ0 `, `stdents`,`Farooq40d7qgmt/Attendance`);
   const q = query(collection(db, `/WEB AND MOBILE /${classID}/stdents/${id}/Attendance`));
 
@@ -263,13 +263,13 @@ async function deleteClass(id){
 
 
   await deleteDoc(doc(db, `/WEB AND MOBILE /${id}`));
-  console.log("Delete Successfully");
+  // console.log("Delete Successfully");
 }
 
 async function deletestdent(id,classID){
   // async function deletestdent(){
-  console.log(id);
-  console.log(classID);
+  // console.log(id);
+  // console.log(classID);
 // await deleteDoc(doc(db, "/WEB AND MOBILE  ",classID,'stdents', id));
 await deleteDoc(doc(db, `/WEB AND MOBILE /${id}/stdents/${classID}`));
   //await deleteDoc(doc(db, `/WEB AND MOBILE /oUFmpPGIbYe54bEv6lQ0/stdents/KhurramRcGPgdmn`));
@@ -285,10 +285,10 @@ async function singlestudents(id){
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
+      // console.log("Document data:", docSnap.data());
     } else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
+      // console.log("No such document!");
     }
 }
 // ============================ Real time data =================================
@@ -335,7 +335,7 @@ return data
 // =============================================================================
 async function updateclass(value,data){
 
-  console.log(data);
+  // console.log(data);
   const {section,batch,time,schedule,teacher} = data
 
   const cityRef = doc(db, `/WEB AND MOBILE /${value}`);
@@ -357,8 +357,8 @@ async function updateclass(value,data){
 // =========================================================================
 async function student(current,section,transfer){
  
-  console.log(section);
-  console.log(transfer);
+  // console.log(section);
+  // console.log(transfer);
 
     let id = JSON.parse(localStorage.getItem("id_classrom"))
   
@@ -395,7 +395,7 @@ async function student(current,section,transfer){
 
 
       
-      console.log(student_data);
+      // console.log(student_data);
   
 
       const cityRef = doc(db, `/WEB AND MOBILE /${id}/stdents/${studentID}`);
@@ -439,13 +439,13 @@ async function student(current,section,transfer){
       const docSnap = await getDoc(docRef);
       
       if (docSnap.exists()) {
-        console.log(docSnap.data());
+        // console.log(docSnap.data());
       } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
       }
       let currentSection
-      console.log( docSnap.data().SectionName);
+      // console.log( docSnap.data().SectionName);
        currentSection = docSnap.data().SectionName
 
        
@@ -458,10 +458,10 @@ async function student(current,section,transfer){
   const docSnap2 = await getDoc(docRef2);
   
   if (docSnap.exists()) {
-    console.log(docSnap2.data());
+    // console.log(docSnap2.data());
   } else {
     // doc.data() will be undefined in this case
-    console.log("No such document!");
+    // console.log("No such document!");
   }
   let transferSection
   transferSection = docSnap2.data().SectionName
@@ -516,7 +516,7 @@ async function extra(details){
   
 
   const docRef = await addDoc(collection(db, "Details"), details);
-  console.log("Document written with ID: ", docRef.id);
+  // console.log("Document written with ID: ", docRef.id);
   
   
 }
@@ -529,7 +529,7 @@ async function getstudent(){
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
     
-      console.log(doc.id, " => ", doc.data());
+      // console.log(doc.id, " => ", doc.data());
       data.push({id:doc.id,...doc.data()})
     });
 
