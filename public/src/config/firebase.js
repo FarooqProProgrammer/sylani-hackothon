@@ -79,7 +79,9 @@ async function addcourse(name,another){
         teachers_name:teachersName,
         SectionName : SectionName,
         corse_name: corseName,
-        batch_nmber : batchNamber
+        batch_nmber : batchNamber,
+        studentTransfer:false
+
     }
   // Add a new document with a generated id.
     const docRef = await addDoc(collection(db, "WEB AND MOBILE "), docment);
@@ -92,7 +94,7 @@ async function addcourse(name,another){
 // ================== get real time Class Data =============================
 async function getRealtime(){
 
-    const q = query(collection(db, "WEB AND MOBILE "));
+    const q = query(collection(db, "WEB AND MOBILE "),where("studentTransfer","==",false));
     const querySnapshot = await getDocs(q);
 
     const data = []
@@ -481,9 +483,7 @@ let details = {
 
 
 
-     // Add a new document in collection "cities"
-      await setDoc(doc(db, "/WEB AND MOBILE ", `Student-Details${ generatePassword()}`), details);
-
+    
       // ========================= another section transfer =============================
 
 
@@ -494,6 +494,15 @@ let details = {
       await updateDoc(cityRef1, {
         isExist:true
       });
+
+
+
+
+ // Add a new document in collection "cities"
+ await setDoc(doc(db, `/WEB AND MOBILE /data/student-transfer/data-${generatePassword()}`), details);
+
+
+
       return data
   
   
