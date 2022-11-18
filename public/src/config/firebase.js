@@ -370,8 +370,16 @@ async function student(current,section,transfer){
     });
 
 
-    // =================================================
-    
+   
+
+
+
+
+
+
+
+
+
       
       let studentID = section
 
@@ -419,13 +427,70 @@ async function student(current,section,transfer){
         });
       }
 
-     
+      
+
+
+
+
+// ============== getting current section ID =================================
+      const docRef = doc(db, `/WEB AND MOBILE /${id}`);
+      const docSnap = await getDoc(docRef);
+      
+      if (docSnap.exists()) {
+        console.log(docSnap.data());
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+      let currentSection
+      console.log( docSnap.data().SectionName);
+       currentSection = docSnap.data().SectionName
+
+       
+
+// ================== getting transfer Section ID =============================
+
+
+  // =================================================
+  const docRef2 = doc(db, `/WEB AND MOBILE /${transfer}`);
+  const docSnap2 = await getDoc(docRef2);
+  
+  if (docSnap.exists()) {
+    console.log(docSnap2.data());
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+  let transferSection
+  transferSection = docSnap2.data().SectionName
+
+
+
+
+
+
+let details = {
+  current_Section : currentSection,
+  transfer_Section : transferSection,
+  name:student_data.name,
+  studentTransfer:true
+  
+}
+
+
+
+
+
+     // Add a new document in collection "cities"
+      await setDoc(doc(db, "/WEB AND MOBILE ", `Student-Details${ generatePassword()}`), details);
 
       // ========================= another section transfer =============================
 
 
       await setDoc(doc(db, `/WEB AND MOBILE /${transfer}/stdents/${student_data.id}`), student_data);
-        const cityRef1 = doc(db, `/WEB AND MOBILE /${transfer}/stdents/${studentID}`);
+      
+      
+      const cityRef1 = doc(db, `/WEB AND MOBILE /${transfer}/stdents/${studentID}`);
       await updateDoc(cityRef1, {
         isExist:true
       });
@@ -436,6 +501,11 @@ async function student(current,section,transfer){
   
   
 }
+
+
+
+
+
 // student()
 export {
     SignIn,
