@@ -472,6 +472,7 @@ async function student(current,section,transfer){
 
 
 let details = {
+  id:student_data.id,
   current_Section : currentSection,
   transfer_Section : transferSection,
   name:student_data.name,

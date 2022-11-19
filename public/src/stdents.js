@@ -184,15 +184,16 @@ async function showStdents(){
 
      showStdents.innerHTML += 
      `
-     <div  class="card w-[350px] h-[500px] border-2  bg-[#3498db] " style='padding-top:50px;'>
+     <div  style='-webkit-box-shadow: 4px 5px 9px 4px #787878; 
+     box-shadow: 4px 5px 9px 4px #787878;' class="card w-[350px] h-[500px] border-2  bg-[#3498db] " style='padding-top:50px;'>
      <div class="img w-full h-[120px]  flex justify-center items-center">
         <div class="img_box  h-[100px] border-2 " style="width:100px; border-radius:100%; background-image:url('${data[i].file}') ;background-size: 100% 100%;"></div>
      </div>
      <div class="cards w-full h-[180px] ">
-     <p class="text-xl font-black pl-5 text-white">id: ${data[i].id}</p>
-        <p class="text-xl font-black pl-5 text-white">${data[i].name}</p>
-        <p class="text-xl font-black pl-5 text-white">${data[i].fatherName}</p>
-        <p class="text-xl font-black pl-5 text-white">${data[i].className}</p>
+     <p class="text-xl  pl-5 text-white"><span style='text-shadow: 4px 4px 5px rgba(61,255,252,0.86);'  class='font-black'> id:</span> ${data[i].id}</p>
+        <p class="text-xl  pl-5 text-white"><span style='text-shadow: 4px 4px 5px rgba(61,255,252,0.86);'  class='font-black'> Name:</span> ${data[i].name}</p>
+        <p class="text-xl  pl-5 text-white"><span style='text-shadow: 4px 4px 5px rgba(61,255,252,0.86);'  class='font-black'> Father Name:</span> ${data[i].fatherName}</p>
+        <p class="text-xl  pl-5 text-white"><span  style='text-shadow: 4px 4px 5px rgba(61,255,252,0.86);' class='font-black'> Class Name:</span> ${data[i].className}</p>
         
         <button style='margin-top:10px;' class="btn btn-dark cursor-pointer text-xl font-black  border-2 text-center mt-[46px] text-white" onclick="Delete('${data[i].id}')">Delete</button>
         <button style='margin-top:10px;' class="btn btn-dark cursor-pointer text-xl font-black  border-2 text-center mt-[46px] text-white" onclick="Attend('${data[i].id}')">Attend</button>
